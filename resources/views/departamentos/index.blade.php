@@ -15,7 +15,7 @@
                     <thead class="text-center" style="background-color: #8eb4cb">
                         <th>id</th>
                         <th>Nombre</th>
-                        <th>Descripción</th>
+                        <th class="col-lg-2">Descripción</th>
                         <th>Responsable</th>
                         <th>Dependencia</th>
                         <th>Telefono</th>
