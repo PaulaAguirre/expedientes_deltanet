@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function __construct ()
     {
-        //$this->middleware ('roles: 1, 2');
+        $this->middleware ('roles: 1, 2');
     }
 
     /**
