@@ -27,7 +27,15 @@ Route::get('/home', function () {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    if (Auth::check ())
+    {
+        return redirect ('index_exp');
+    }
+    else
+    {
+        return redirect ('login');
+    }
 });
 
 
