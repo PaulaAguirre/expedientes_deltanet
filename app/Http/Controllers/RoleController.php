@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\UpdateRoleFormRequest;
 use App\Role;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateRoleFormRequest;
-
 
 
 class RoleController extends Controller
@@ -28,13 +28,8 @@ class RoleController extends Controller
             $query = trim ( $request->get ( 'searchText' ) );
             $roles = Role::where('nombre', 'like', '%'.$query.'%')
                 ->orderBy('id', 'ASC')->paginate(4);
-
+            return view ( 'roles.index', ['roles' => $roles, 'searchText' => $query] );
         }
-
-        return view ( 'roles.index', ['roles' => $roles, 'searchText' => $query] );
-        //dd ($roles);
-
-
     }
 
     /**

@@ -31,6 +31,7 @@ class UserController extends Controller
         if ($request) {
             $query = trim ( $request->get ( 'searchText' ) );
             $users = User::with ('role', 'area')
+                ->whereNotIn ('role_id', [1,2])
                 ->where('name', 'like', '%'.$query.'%')
                 ->orwhere('lastname', 'like', '%'.$query.'%')
                 ->orWhere('cedula', 'like', '%'.$query.'%')

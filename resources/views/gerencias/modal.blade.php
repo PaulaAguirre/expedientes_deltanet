@@ -1,6 +1,6 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
      role="dialog" tabindex="-1" id="modal-delete-{{$gerencia->id}}">
-    {{Form::Open(array('action'=>array('GerenciaController@destroy',$gerencia->id),'method'=>'delete'))}}
+    {{Form::Open(array('action'=>array('ProveedorController@destroy',$gerencia->id),'method'=>'delete'))}}
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,10 +8,10 @@
                         aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">Eliminar Gerencia {{$gerencia->nombre}}</h4>
+                <h4 class="modal-title">Eliminar Proveedor {{$gerencia->name}}</h4>
             </div>
             <div class="modal-body">
-                <p>Confirme si desea Eliminar la gerencia</p>
+                <p>Confirme si desea Eliminar el gerencia</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

@@ -67,10 +67,8 @@
                                 <td>{{ $user->role->nombre }}</td>
                             @endif
                             <td>
-                                @can('update' , $user)
-                                    <a href="{{URL::action('UserController@edit',$user->id)}}"><button class="btn btn-info">Editar</button></a>
-                                @endcan
                                     @if(in_array (auth ()->user ()->role_id, [1,2] ))
+                                        <a href="{{URL::action('UserController@edit',$user->id)}}"><button class="btn btn-info">Editar</button></a>
                                         <a href="" data-target="#modal-delete-{{$user->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                                     @endif
 

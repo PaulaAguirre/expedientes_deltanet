@@ -2,13 +2,12 @@
 @section ('contenido')
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <h3>Listado de Tipos de Expedientes
+            <h3>Listado de Tipos de Expedientes</h3>
                 @if(in_array (auth ()->user ()->role_id, [1,2] ))
                     <a href="tipoexpedientes/create"><button class="btn btn-success">Nuevo</button></a></h3>
                 @endif
+
             @include('tipoexpedientes.search')
-            <br>
-            <br>
         </div>
     </div>
 
@@ -17,10 +16,10 @@
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-condensed table-hover">
                     <thead style="background-color: #8eb4cb" >
-                        <th class="text-center">id</th>
-                        <th class="text-center">Nombre</th>
-                        <th class="text-center">Descripción</th>
-                        <th class="text-center">Opciones</th>
+                    <th class="text-center">id</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Descripción</th>
+                    <th class="text-center">Opciones</th>
                     </thead>
                     @foreach ($tipos as $tipo)
                         <tr class="text-center">
