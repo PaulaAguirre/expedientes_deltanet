@@ -11,9 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+
+    if (Auth::check ())
+    {
+        return redirect ('index_exp');
+    }
+    else
+    {
+        return redirect ('login');
+    }
+
+
+
 });
+
+Route::get('/', function () {
+    return redirect()->back();
+});
+
+
 
 Auth::routes();
 
