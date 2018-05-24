@@ -26,7 +26,13 @@ Route::get('/home', function () {
 
 });
 
-Route::get('', function () {
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
     return redirect()->back();
 });
 
