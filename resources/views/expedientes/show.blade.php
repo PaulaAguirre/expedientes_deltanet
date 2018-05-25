@@ -61,7 +61,7 @@
         </div>
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group text-uppercase">
+            <div class="form-group text-uppercase text-danger text-bold">
                 <label for="monto">última edición</label>
                 <p>{{$expediente->updated_at}}</p>
             </div>

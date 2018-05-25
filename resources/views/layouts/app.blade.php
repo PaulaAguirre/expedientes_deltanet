@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>FDoc|DCingenieria</title>
+    <title>DocF|DCingenieria</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,7 +30,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="#" style="color: #122b40">
-                        FDOC
+                        DocF
                     </a>
                 </div>
 

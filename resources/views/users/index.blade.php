@@ -5,7 +5,6 @@
             <h3>Usuarios <a href="users/create"> @if(in_array (auth ()->user ()->role_id, [1,2] ))<button class="btn btn-success">Nuevo</button>@endif</a></h3>
 
             @include('users.search')
-            <br>
         </div>
     </div>
 

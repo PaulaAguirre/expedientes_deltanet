@@ -58,7 +58,10 @@
                                 @if($expediente->histories->last()->estado == 'rechazado')
                                     <a href="{{URL::action ('RechazadosController@edit', $expediente->id)}}"><button class="btn btn-warning">Regularizar</button></a>
                                 @endif
-                                <a href="{{URL::action ('ExpedienteController@edit', $expediente->id)}}"><button class="btn btn-info">Editar</button></a>
+
+                                @if($expediente->histories->last()->estado <> 'aprobado')
+                                    <a href="{{URL::action ('ExpedienteController@edit', $expediente->id)}}"><button class="btn btn-info">Editar</button></a>
+                                @endif
                             </td>
 
                             </tr>
