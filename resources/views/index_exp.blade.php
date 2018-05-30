@@ -1,5 +1,9 @@
 @extends ('layouts.admin')
 @section('contenido')
+
+
+
+
 <div class="container">
     <br>
     <br>
