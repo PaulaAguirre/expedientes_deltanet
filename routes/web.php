@@ -39,12 +39,6 @@ Route::get('/', function () {
 });
 
 
-
-/*Route::get('/', function () {
-    return redirect()->back();
-});*/
-
-
 Auth::routes();
 
 

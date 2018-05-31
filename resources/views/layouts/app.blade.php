@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('img/lupa.png')}}" >
+    <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
 </head>
 <body>
     <div id="app">

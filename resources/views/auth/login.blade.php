@@ -49,10 +49,14 @@
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                                     </label>
                                 </div>
+                                <i class="fa fa-key" aria-hidden="true"></i>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Cambio de Password') }}
+                                </a>
                             </div>
+
                         </div>
 
-                        <br>
                         <div class="form-group ">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block">
