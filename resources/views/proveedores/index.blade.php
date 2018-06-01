@@ -19,7 +19,8 @@
                         <th>Celular</th>
                         <th>Email</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
-                            <th>Opciones</th>
+
+                                <th>Opciones</th>
                         @endif
                     </thead>
                     @foreach ($proveedores as $proveedor)
@@ -32,12 +33,12 @@
                             <td>{{$proveedor->email}}</td>
                             @if(in_array (auth ()->user ()->role_id, [1,2] ))
 
-                                <td>
+                            <td>
                                     <a href="{{URL::action('ProveedorController@edit',$proveedor->id)}}"><button class="btn btn-info">Editar</button></a>
                                     <a href="" data-target="#modal-delete-{{$proveedor->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                                 </td>
-                            @endif
-                        </tr>
+                                @endif
+                            </tr>
                         @include('proveedores.modal')
                     @endforeach
                 </table>
