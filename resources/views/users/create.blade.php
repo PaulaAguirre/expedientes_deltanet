@@ -36,7 +36,7 @@
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="cedula">Cedula</label>
-                <input type="text" name="cedula" required value="{{old('cedula')}}" class="form-control text-uppercase" placeholder="número de cedula..">
+                <input type="text" name="cedula"  value="{{old('cedula')}}" class="form-control text-uppercase" placeholder="número de cedula..">
             </div>
         </div>
 
