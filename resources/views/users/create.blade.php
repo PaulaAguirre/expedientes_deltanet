@@ -36,14 +36,14 @@
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="cedula">Cedula</label>
-                <input type="text" name="cedula" required value="{{old('cedula')}}" class="form-control text-uppercase" placeholder="número de cedula..">
+                <input type="text" name="cedula"  value="{{old('cedula')}}" class="form-control text-uppercase" placeholder="número de cedula..">
             </div>
         </div>
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="phone">Telefono</label>
-                <input type="text" name="phone" required value="{{old('phone')}}" class="form-control text-uppercase" placeholder="Telefono...">
+                <input type="text" name="phone"  value="{{old('phone')}}" class="form-control text-uppercase" placeholder="Telefono...">
             </div>
         </div>
 
@@ -51,7 +51,7 @@
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="mobile">Celular</label>
-                <input type="text" name="mobile" required value="{{old('mobile')}}" class="form-control text-uppercase" placeholder="Celular...">
+                <input type="text" name="mobile"  value="{{old('mobile')}}" class="form-control text-uppercase" placeholder="Celular...">
             </div>
         </div>
 
@@ -59,7 +59,7 @@
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email"  value="{{old('email')}}" class="form-control" placeholder="email@example.com">
+                <input type="email" name="email" required value="{{old('email')}}" class="form-control" placeholder="email@example.com">
             </div>
         </div>
 

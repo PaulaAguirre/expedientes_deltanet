@@ -26,7 +26,7 @@ class UserCreateFormRequest extends FormRequest
         return [
             'name'=>'required',
             'lastname'=>'required',
-            'cedula'=>'required|unique:users,cedula',
+            'cedula'=>'unique:users,cedula',
             'email'=> 'required|unique:users,email,'
         ];
     }
