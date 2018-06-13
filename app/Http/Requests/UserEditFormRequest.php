@@ -43,7 +43,7 @@ class UserEditFormRequest extends FormRequest
         return [
             'name'=>'required',
             'lastname'=>'required',
-            'cedula'=>[Rule::unique ('users', 'cedula')->ignore ($id)],
+            //'cedula'=>[Rule::unique ('users', 'cedula')->ignore ($id)],
             'email'=> 'required|unique:users,email,'.$id
 
         ];
