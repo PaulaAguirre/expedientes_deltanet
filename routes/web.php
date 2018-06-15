@@ -39,6 +39,9 @@ Route::get('/', function () {
 });
 
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+
 Auth::routes();
 
 
