@@ -15,10 +15,7 @@
                     <th>id</th>
                     <th>OT</th>
                     <th>Fecha Entrada</th>
-                    @if(in_array (Auth::user ()->role_id, [1,2]))
                     <th>Creador</th>
-                    @endif
-                    <th>Obra</th>
                     <th>Monto</th>
                     <th>Area Actual</th>
                     <th class="text-center">Opciones</th>
@@ -28,16 +25,14 @@
                     @foreach ($expedientes as $expediente)
                         @if($expediente->histories->last()->estado == 'rechazado')
                             @if(Auth::user ()->role_id == 3 || Auth::user ()->role_id == 8)
-                                @if($rechazado->expediente->user_id == Auth::user ()->id)
+                                @if($expediente->user_id == Auth::user ()->id)
                                     <tr class="text-uppercase">
                                         <td>{{$expediente->id}}</td>
                                         <td>{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</td>
                                         <td>{{$expediente->histories->last()->fecha_entrada}}</td>
                                         <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
-                                        <td>{{$expediente->obra}}</td>
                                         <td>{{$expediente->monto}}</td>
                                         <td>{{$expediente->histories->last()->area->nombre}}</td>
-
                                         <td class="text-center">
                                             <a href="{{URL::action('RechazadosController@edit', $expediente->id)}}"><button class="btn btn-warning">Regularizar</button></a>
                                         </td>
@@ -50,7 +45,6 @@
                                     <td>{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</td>
                                     <td>{{$expediente->histories->last()->fecha_entrada}}</td>
                                     <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
-                                    <td>{{$expediente->obra}}</td>
                                     <td>{{$expediente->monto}}</td>
                                     <td>{{$expediente->histories->last()->area->nombre}}</td>
 

@@ -15,7 +15,14 @@ Route::get('/home', function () {
 
     if (Auth::check ())
     {
-        return redirect ('index_exp');
+        if (\Illuminate\Support\Facades\Auth::user ()->role_id == 8)
+        {
+            return redirect ('expedientes');
+        }
+        else
+        {
+            return redirect ('aprobacion_expedientes/expedientes_pendientes');
+        }
     }
     else
     {
@@ -30,7 +37,14 @@ Route::get('/', function () {
     //return view('welcome');
     if (Auth::check ())
     {
-        return redirect ('index_exp');
+        if (\Illuminate\Support\Facades\Auth::user ()->role_id == 8)
+        {
+            return redirect ('expedientes');
+        }
+        else
+        {
+            return redirect ('aprobacion_expedientes/expedientes_pendientes');
+        }
     }
     else
     {

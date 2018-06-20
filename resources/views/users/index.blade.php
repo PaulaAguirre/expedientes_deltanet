@@ -14,7 +14,7 @@
                 <table class="table table-striped table-bordered table-condensed table-hover">
                     <thead  class="text-uppercase" style="background-color: #8eb4cb">
                         <th>id</th>
-                        <th>Nombre</th>
+                        <th class="">Nombre</th>
                         <th class="col-lg-2">Area</th>
                         <th>Cargo</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
@@ -25,7 +25,7 @@
                         <th>Email</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
                             <th>Rol</th>
-                            <th>Opciones</th>
+                            <th class="col-lg-2">Opciones</th>
                         @endif
 
                     </thead>

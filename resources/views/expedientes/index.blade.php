@@ -44,7 +44,7 @@
                                     <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                                 @endif
                                 @if($expediente->histories->last()->estado == 'aprobado')
-                                     <td class="text-green">Aprobado</td>
+                                     <td class="text-green">Proceso Finalizado</td>
                                 @elseif($expediente->histories->last()->estado == 'rechazado')
                                     <td class="text-danger">Rechazado</td>
                                 @else

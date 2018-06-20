@@ -193,8 +193,35 @@ class HistoryController extends Controller
             ->where ('estado', '=', 'pendiente')->first ();
         //Area (estado pendiente) al que corresponde el jefe o gerente ($area_actual->area_id)
 
+        //$sgte_posicion = array_search ($area_actual->area_id, $areas_expediente) + 1 ; //siguiente posicion en el array de areas
 
-        $sgte_posicion = array_search ($area_actual->area_id, $areas_expediente) + 1 ; //siguiente posicion en el array de areas
+        /*** pruebas***/
+        $cantidad_aprobados = $expediente->histories->where('area_id', '=', $area_actual->area_id)->where('estado', '=', 'aprobado')->count();
+        //$cantidad_apariciones = array_count_values ($areas_expediente); //devuelve la cantidad de veces que aparece un elemento
+
+        //dd ($cantidad_apariciones[$area_actual->area_id]);
+
+        $array_aux = [];
+
+        foreach ($areas_expediente as $area)
+        {
+            array_push ($array_aux, $area);
+
+            if($area == $area_actual->area_id)
+            {
+                $cantidad_apariciones = array_count_values ($array_aux);
+
+                if ($cantidad_apariciones[$area_actual->area_id] == $cantidad_aprobados+1)
+                {
+                    break;
+                }
+            }
+        }
+
+        //dd (count ($array_aux));
+
+        $sgte_posicion = count ($array_aux);
+
        if ($sgte_posicion  < count ($areas_expediente))
        {
            $id_area_sgte = $areas_expediente[$sgte_posicion]; //devuelve el id de la siguiente posicion en el array de areas

@@ -73,7 +73,7 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
-        return view ('proveedores.edit', ['proveedores' => Proveedor::findOrFail ($id)]);
+        return view ('proveedores.edit', ['proveedor' => Proveedor::findOrFail ($id)]);
     }
 
     /**

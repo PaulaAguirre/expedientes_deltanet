@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Expediente;
+use Carbon\CarbonInterval;
 use Illuminate\Http\Request;
 use App\Tipoexpediente;
 use Carbon\Carbon;
@@ -48,6 +49,8 @@ class ExpedienteController extends Controller
 
 
         }
+
+
 
         return view ('expedientes.index', ['searchText' => $query, 'expedientes' => $expedientes]);
     }
@@ -142,8 +145,14 @@ class ExpedienteController extends Controller
 
         $histories = History::where('expediente_id', '=', $expediente->id)->get ();
 
+        $ultima_fecha= $expediente->histories->last()->updated_at;
+
+        $tiempo = $ultima_fecha->diffInDays($expediente->fecha_creacion);
+        $tiempo_transcurrido = CarbonInterval::day ($tiempo)->forHumans ();
+        //$tiempo_transcurrido =CarbonInterval::compareDateIntervals($ultima_fecha, $tiempo);
+
         return view ('expedientes.show', ['expediente' => $expediente,
-            'histories' => $histories, 'area_creacion'=>$area_creacion, 'cargo' => $cargo]);
+            'histories' => $histories, 'area_creacion'=>$area_creacion, 'cargo' => $cargo, 'tiempo_transcurrido'=>$tiempo_transcurrido]);
     }
 
     /**
