@@ -237,7 +237,7 @@
 <!--Fin-Contenido-->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version</b> Beta
+        <b>Version.</b> Beta
     </div>
     <strong>Copyright &copy; 2018 <a href="">DELTAnet.</a><span><i><img src="img/logo deltanet.png" width="20" height="20"></i></span>.</strong> All rights reserved.
 </footer>
