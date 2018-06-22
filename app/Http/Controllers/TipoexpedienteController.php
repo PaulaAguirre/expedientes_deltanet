@@ -68,8 +68,10 @@ class TipoexpedienteController extends Controller
             $cont = $cont + 1;
 
 
-
        }
+
+
+       dd ($tipoexpediente->areas);
 
         return redirect ('tipoexpedientes');
     }

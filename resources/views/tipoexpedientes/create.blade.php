@@ -95,6 +95,7 @@
                 if(idarea!=""){
                     var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarea[]" value="'+idarea+'">'+area+'</td></tr>'
                     cont++;
+                    orden++;
                     $('#detalles').append(fila);
                     $('#guardar').show();
                 }
