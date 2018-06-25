@@ -145,9 +145,7 @@ class ExpedienteController extends Controller
 
         $ultima_fecha= $expediente->histories->last()->updated_at;
 
-        $tiempo = $ultima_fecha->diffInDays($expediente->fecha_creacion);
-        $tiempo_transcurrido = CarbonInterval::day ($tiempo)->forHumans ();
-        //$tiempo_transcurrido =CarbonInterval::compareDateIntervals($ultima_fecha, $tiempo);
+        $tiempo_transcurrido = $ultima_fecha->diffInDays($expediente->fecha_creacion);
 
         return view ('expedientes.show', ['expediente' => $expediente,
             'histories' => $histories, 'area_creacion'=>$area_creacion, 'cargo' => $cargo, 'tiempo_transcurrido'=>$tiempo_transcurrido]);
