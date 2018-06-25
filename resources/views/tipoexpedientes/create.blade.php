@@ -83,19 +83,14 @@
                     agregar();
                 })
             })
-
             var cont = 0;
             $("#guardar").hide();
-
             function agregar() {
-
                 idarea = $("#pidarea").val();
                 area = $("#pidarea option:selected").text();
-
                 if(idarea!=""){
                     var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarea[]" value="'+idarea+'">'+area+'</td></tr>'
                     cont++;
-                    orden++;
                     $('#detalles').append(fila);
                     $('#guardar').show();
                 }
@@ -103,9 +98,7 @@
                     $("#guardar").hide();
                     alert("Error al agregar un area");
                 }
-
             }
-
             function eliminar(index) {
                 $("#fila"+index).remove();
             }

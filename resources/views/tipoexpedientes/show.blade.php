@@ -24,6 +24,7 @@
                 <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
                     <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
                         <thead style="background-color: #8eb4cb">
+                        <th>Orden</th>
                         <th><i class="fa fa-arrow-circle-down"></i>ID Area</th>
                         <th>Nombre</th>
                         </thead>
@@ -36,6 +37,7 @@
                         <tbody class="text-uppercase">
                         @foreach($areas as $area)
                             <tr>
+                                <td>{{$area->pivot->orden}}</td>
                                 <td><i class="fa fa-arrow-circle-down"></i>{{$area->id}}</td>
                                 <td>{{$area->nombre}}</td>
 

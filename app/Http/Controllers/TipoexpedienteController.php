@@ -64,14 +64,11 @@ class TipoexpedienteController extends Controller
 
        while ($cont < count ($area_id)){
 
-           $tipoexpediente->areas ()->attach ($area_id[$cont]);
+           $tipoexpediente->areas ()->attach ($area_id[$cont], ['orden' => $cont]);
             $cont = $cont + 1;
 
 
        }
-
-
-       dd ($tipoexpediente->areas);
 
         return redirect ('tipoexpedientes');
     }
