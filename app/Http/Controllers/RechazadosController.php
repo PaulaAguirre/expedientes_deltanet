@@ -159,45 +159,21 @@ class RechazadosController extends Controller
             ->sortByDesc ( 'id' )->unique ( 'expediente_id' )->first ();
 
         $tipo_id = $expediente->tipoexpediente->id;
-        $areas_expediente = Tipoexpediente::findOrFail ( $tipo_id )->areas->pluck ( 'id' )->toArray ();
+        $areas_expediente = Tipoexpediente::findOrFail ( $tipo_id )->areas;
 
         //policy
         $this->authorize ('update', $history);
 
-        //$sgte_posicion = array_search ( $history->area_id, $areas_expediente ) + 1;
 
-        /*** pruebas***/
-        $cantidad_aprobados = $expediente->histories->where('area_id', '=', $history->area_id)->where('estado', '=', 'aprobado')->count();
-        //$cantidad_apariciones = array_count_values ($areas_expediente); //devuelve la cantidad de veces que aparece un elemento
-
-        //dd ($cantidad_apariciones[$area_actual->area_id]);
-
-        $array_aux = [];
-
-        foreach ($areas_expediente as $area)
-        {
-            array_push ($array_aux, $area);
-
-            if($area == $history->area_id)
-            {
-                $cantidad_apariciones = array_count_values ($array_aux);
-
-                if ($cantidad_apariciones[$history->area_id] == $cantidad_aprobados+1)
-                {
-                    break;
-                }
-            }
-        }
-
-        $sgte_posicion = count ($array_aux);
+        $siguiente_posicion = $history->orden+1;
 
 
-        if ($sgte_posicion < count ( $areas_expediente )) {
-            $id_area_sgte = $areas_expediente[$sgte_posicion]; //devuelve el id de la siguiente posicion en el array de areas
+        if ($siguiente_posicion < $areas_expediente->count()) {
 
             $new_history = new History();
             $new_history->expediente_id = $expediente->id;
             $new_history->area_id = $history->area_id;
+            $new_history->orden = $history->orden;
             $new_history->estado = 'pendiente';
             $new_history->fecha_entrada = Carbon::now ();
             $new_history->observaciones_regularizacion = $observaciones_regularizacion;
@@ -208,6 +184,7 @@ class RechazadosController extends Controller
             $new_history = new History();
             $new_history->expediente_id = $id;
             $new_history->area_id = $history->area_id;
+            $new_history->orden = $history->orden;
             $new_history->estado = 'pendiente';
             $new_history->fecha_entrada = Carbon::now ();
             $new_history->observaciones_regularizacion = $observaciones_regularizacion;

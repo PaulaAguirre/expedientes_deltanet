@@ -20,7 +20,7 @@ class tipoexpediente extends Model
 
     public function areas()
     {
-        return $this->belongsToMany ('App\Area');
+        return $this->belongsToMany ('App\Area')->withPivot ('orden')->withTimestamps ();
     }
 
     public function expedientes ()

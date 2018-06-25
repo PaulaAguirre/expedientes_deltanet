@@ -68,7 +68,7 @@
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <div class="form-group">
                 <label for="anterior">Area Anterior</label>
-                <p>{{$history_anterior->area->nombre}}</p>
+                <p>orden {{$history_anterior->orden}}-{{$history_anterior->area->nombre}}</p>
             </div>
         </div>
 
@@ -140,8 +140,8 @@
 
                             <div class="" style="display: none" id="select_area">
                                 <select name="select_area_id" id="select_area_id" class="form-control text-uppercase selectpicker" data-live-search="true" title="Seleccione un area">
-                                    @foreach($collect_anteriores as $area)
-                                        <option value="{{$area->id}}" >{{$area->nombre}}</option>
+                                    @foreach($areas_anteriores as $area)
+                                        <option value="{{$area->pivot->orden}}" >orden: {{$area->pivot->orden+1}}-{{$area->nombre}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -165,8 +165,8 @@
                     <div class="form-group">
                         <div class="" id="select_area">
                             <select name="id_area_siguiente" id="id_area_siguiente" class="form-control text-uppercase selectpicker" data-live-search="true" title="Seleccione un area">
-                                @foreach($collect_siguientes as $area)
-                                    <option value="{{$area->id}}" >{{$area->nombre}}</option>
+                                @foreach($areas_siguientes as $area)
+                                    <option value="{{$area->pivot->orden}}" >orden: {{$area->pivot->orden}}-{{$area->nombre}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -86,20 +86,18 @@ class ExpedienteController extends Controller
 
         $expediente->save ();
 
-        $tipo = $expediente->tipoexpediente->id;
-
-        $areas = Tipoexpediente::findOrFail ($tipo)->areas->pluck('id');
-        $area_id = $areas->first();
+        $primer_area = $expediente->tipoexpediente->areas->first();
 
         $history = History::create ([
             'expediente_id' => $expediente->id,
-            'area_id' => $area_id,
+            'area_id' => $primer_area->id,
+            'orden' => $primer_area->pivot->orden,
             'estado' => 'pendiente',
             'motivo' => 'ok',
             'fecha_entrada' => $expediente->fecha_creacion
         ]);
 
-        $responsable = Area::findOrFail ($area_id)->user;
+        $responsable = Area::findOrFail ($primer_area->id)->user;
         $responsable->notify(new NuevoPendienteNotification($history));
 
         return redirect ('expedientes');
