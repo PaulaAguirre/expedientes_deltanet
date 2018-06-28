@@ -2,18 +2,18 @@
 @section ('contenido')
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-            <h3>Listado de Tipos de Expedientes</h3>
+            <h3>Listado de Tipos de Expedientes
                 @if(in_array (auth ()->user ()->role_id, [1,2] ))
-                    <a href="tipoexpedientes/create"><button class="btn btn-success">Nuevo</button></a></h3>
+                    <a href="tipoexpedientes/create"><button class="btn btn-success">Nuevo</button></a>
                 @endif
-
+            </h3>
             @include('tipoexpedientes.search')
         </div>
     </div>
 
-    <div class="row">
+    <div class="row text-uppercase">
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-            <div class="table-responsive">
+            <div class="table-responsive text-uppercase">
                 <table class="table table-striped table-bordered table-condensed table-hover">
                     <thead style="background-color: #8eb4cb" >
                     <th class="text-center">id</th>
