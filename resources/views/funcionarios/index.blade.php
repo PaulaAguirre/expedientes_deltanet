@@ -1,7 +1,7 @@
 @extends ('layouts.admin')
 @section ('contenido')
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
             <h3>Listado de Funcionarios <a href="funcionarios/create">@if(in_array (auth ()->user ()->role_id, [1,2] ))<button class="btn btn-success">Nuevo</button>@endif</a></h3>
             @include('roles.search')
             <br>
@@ -9,7 +9,7 @@
     </div>
 
     <div class="row text-uppercase">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-condensed table-hover">
                     <thead style="background-color: #8eb4cb">
