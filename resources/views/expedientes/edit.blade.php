@@ -93,6 +93,7 @@
             </div>
         </div>
 
+
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="notas">Notas</label>
@@ -100,15 +101,6 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-            <br>
-            <p class="text-danger text-bold">
-                Por favor verifique todos los datos antes de enviar.<br>
-                Evite editar lo menos posible, para evitar incosistencias de datos.<br>
-                Para más información, comuníquese con el Administrador.
-            </p>
-            <br>
-        </div>
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" id="guardar">
             <div class="form-group">

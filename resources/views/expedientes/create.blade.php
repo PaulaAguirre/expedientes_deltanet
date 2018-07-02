@@ -18,7 +18,6 @@
     {!!Form::open(array('url'=>'expedientes','method'=>'POST','autocomplete'=>'off'))!!}
     {{Form::token()}}
 
-    <br>
     <div class="row">
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
@@ -79,21 +78,20 @@
             </div>
         </div>
 
+
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="notas">Notas</label>
-                <textarea class="form-control text-uppercase" name="notas" rows="3" placeholder="Notas extras respecto al expediente"></textarea>
+                <textarea class="form-control text-uppercase" name="notas" rows="1" placeholder="Notas extras respecto al expediente"></textarea>
             </div>
         </div>
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <br>
-            <p class="text-danger text-bold">
-                Por favor verifique todos los datos antes de enviar.<br>
-                Una vez que el Expediente haya sido enviado, ya no podrá ser modificado.<br>
-                Para más información, comuníquese con el Administrador.
+            <p class="text-danger text-bold text-sm">
+                Por favor verifique todos los datos antes de enviar.
+                Una vez que el Expediente haya sido enviado, ya no podrá ser modificado. Para más información, comuníquese con el Administrador.
             </p>
-            <br>
         </div>
 
 

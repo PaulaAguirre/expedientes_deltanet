@@ -1,7 +1,7 @@
 @extends ('layouts.admin')
 @section ('contenido')
     <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h3>Listado de Funcionarios <a href="funcionarios/create">@if(in_array (auth ()->user ()->role_id, [1,2] ))<button class="btn btn-success">Nuevo</button>@endif</a></h3>
             @include('roles.search')
             <br>
