@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Expediente extends Model
+use OwenIt\Auditing\Contracts\Auditable;
+class Expediente extends Model implements Auditable
 {
+    use \OwenIt\Auditing\Auditable;
+
     /**
      * @mixin \Eloquent
      */

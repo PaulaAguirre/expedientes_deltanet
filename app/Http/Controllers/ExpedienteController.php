@@ -145,7 +145,15 @@ class ExpedienteController extends Controller
 
         $ultima_fecha= $expediente->histories->last()->updated_at;
 
-        $tiempo_transcurrido = $ultima_fecha->diffInDays($expediente->fecha_creacion);
+        if ($expediente->histories->last()->estado == 'aprobado')
+        {
+            $tiempo_transcurrido = $ultima_fecha->diffInDays($expediente->created_at);
+        }
+        else {
+            $tiempo_transcurrido = $expediente->created_at->diffForHumans ();
+        }
+
+        //dd ($tiempo_transcurrido);
 
         return view ('expedientes.show', ['expediente' => $expediente,
             'histories' => $histories, 'area_creacion'=>$area_creacion, 'cargo' => $cargo, 'tiempo_transcurrido'=>$tiempo_transcurrido]);
