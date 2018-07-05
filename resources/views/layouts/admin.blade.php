@@ -114,13 +114,9 @@
                                 </li>
                             @endif
                         </ul>
-
                     </li>
-
-
                 </ul>
             </div>
-
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
@@ -193,8 +189,14 @@
                 </li>
 
             </ul>
+
+            
         </section>
         <!-- /.sidebar -->
+        <br>
+        <br>
+        <img src="{{URL::asset('/img/logo2.png')}}" class="margin text-center" style="width: 90%">
+
     </aside>
 
 
@@ -239,7 +241,7 @@
     <div class="pull-right hidden-xs">
         <b>Version.</b> Beta
     </div>
-    <strong>Copyright &copy; 2018 <a href="">DELTAnet.</a><span><link rel="shortcut icon" href="{{asset('img/logo deltanet.png')}}" ></span>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2018<span> <img src="{{URL::asset('/img/logo deltanet.png')}}" style="width: 2%"></span> <a href="">DELTAnet.</a>.</strong> All rights reserved.
 </footer>
 
 
