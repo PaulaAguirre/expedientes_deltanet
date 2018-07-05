@@ -57,7 +57,7 @@
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group text-uppercase">
                 <label for="monto">Monto</label>
-                <p>{{$expediente->monto}}</p>
+                <p>{{number_format ($expediente->monto,2, ",", ".")}}</p>
             </div>
         </div>
 

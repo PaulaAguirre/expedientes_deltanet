@@ -61,7 +61,7 @@
         <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <div class="form-group">
                 <label for="monto">Monto</label>
-                <p>{{$expediente->monto}}</p>
+                <p>{{number_format ($expediente->monto,2, ",", ".")}}</p>
             </div>
         </div>
 
