@@ -88,6 +88,7 @@
                         <th>Area__<i class="fa fa-arrow-circle-down"></i></th>
                         <th>Fecha Entrada</th>
                         <th>Observaciones</th>
+                        <th>aprobado por</th>
                         <th>Estado</th>
                         </thead>
                         <tfoot>
@@ -104,6 +105,7 @@
                                 <td>{{$history->area->nombre}}</td>
                                 <td>{{$history->fecha_entrada}}</td>
                                 <td>{{$history->observaciones}}</td>
+                                <td>{{$history->user ? $history->user->name.' '.$history->user->lastname : 'Pendiente'}}</td>
                                 <td>{{$history->estado}}</td>
                             </tr>
                         @endforeach

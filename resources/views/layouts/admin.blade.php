@@ -156,7 +156,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{url('expedientes')}}"><i class="fa fa-folder"></i>Mis Expedientes Creados</a></li>
+                        <li><a href="{{url('expedientes')}}"><i class="fa fa-folder"></i>Expedientes Creados</a></li>
                         <li><a href="{{url('expedientes_rechazados/expedientes_rechazados_creador')}}"><i class="fa fa-folder"></i>Mis Expedientes Rechazados</a></li>
                         @if(in_array (Auth::user ()->role_id, [1,2,3] ))
                             <li><a href="{{url ('aprobacion_expedientes/expedientes_pendientes')}}"><i class="fa fa-folder"></i>Expedientes a Aprobar</a></li>

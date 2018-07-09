@@ -155,6 +155,7 @@ class ExpedienteController extends Controller
 
         //dd ($tiempo_transcurrido);
 
+
         return view ('expedientes.show', ['expediente' => $expediente,
             'histories' => $histories, 'area_creacion'=>$area_creacion, 'cargo' => $cargo, 'tiempo_transcurrido'=>$tiempo_transcurrido]);
     }

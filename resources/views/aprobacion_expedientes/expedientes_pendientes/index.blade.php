@@ -24,23 +24,7 @@
                     </thead>
                     @foreach ($expedientes as $expediente)
                         @if($expediente->histories->last()->estado == 'pendiente')
-                            @if(Auth::user ()->role_id == 3)
-                                @if($expediente->histories->last()->area_id == Auth::user ()->area->id)
-                                    <tr class="text-uppercase">
-                                        <td>{{$expediente->id}}</td>
-                                        <td>{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</td>
-                                        <td>{{ $expediente->histories->last()->fecha_entrada}}</td>
-                                        <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
-                                        <td>{{$expediente->ot->obra}}</td>
-                                        <td>{{$expediente->monto}}</td>
-
-                                        <td class="text-center">
-                                            <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
-                                        </td>
-                                    </tr>
-                                @endif
-                            @endif
-                            @if(in_array (Auth::user ()->role_id, [1,2]))
+                            @if($expediente->histories->last()->area_id == Auth::user ()->area->id)
                                 <tr class="text-uppercase">
                                     <td>{{$expediente->id}}</td>
                                     <td>{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</td>
@@ -49,10 +33,9 @@
                                     <td>{{$expediente->ot->obra}}</td>
                                     <td>{{$expediente->monto}}</td>
 
-                                        <td class="text-center">
-                                            <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
-                                        </td>
-
+                                    <td class="text-center">
+                                        <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
+                                    </td>
                                 </tr>
                             @endif
                         @endif

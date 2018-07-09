@@ -53,7 +53,9 @@
                             <td class="text-center">
                                 <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
                                 @if(in_array (auth ()->user ()->role_id, [1,2] ))
-                                    <a href="" data-target="#modal-delete-{{$expediente->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                                    @if($expediente->histories->last()->estado == 'pendiente')
+                                        <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-bitbucket">Aprobar</button></a>
+                                    @endif
                                 @endif
                                 @if($expediente->histories->last()->estado == 'rechazado')
                                     <a href="{{URL::action ('RechazadosController@edit', $expediente->id)}}"><button class="btn btn-warning">Regularizar</button></a>
@@ -61,6 +63,10 @@
 
                                 @if($expediente->histories->last()->estado <> 'aprobado')
                                     <a href="{{URL::action ('ExpedienteController@edit', $expediente->id)}}"><button class="btn btn-info">Editar</button></a>
+                                @endif
+
+                                @if(in_array (auth ()->user ()->role_id, [1]))
+                                    <a href="" data-target="#modal-delete-{{$expediente->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
                                 @endif
                             </td>
 
