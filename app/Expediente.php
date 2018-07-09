@@ -25,6 +25,7 @@ class Expediente extends Model implements Auditable
         'ot_id',
         'proveedor_id',
         'referencia',
+        'monto_factura',
         'monto',
         'notas'
     ];

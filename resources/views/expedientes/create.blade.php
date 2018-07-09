@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="cliente">Cliente</label>
                 <select name="cliente_id" class="selectpicker form-control text-uppercase">
@@ -70,11 +70,18 @@
             </div>
         </div>
 
-
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="monto">Monto</label>
-                <input type="number" name="monto" required value="{{old('monto')}}" class="form-control text-uppercase" placeholder="monto">
+                <label for="monto">Monto Factura</label>
+                <input type="number" name="monto_factura" required value="{{old('monto_factura')}}" class="form-control text-uppercase" placeholder="monto factura">
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="monto">Monto Total</label>
+                <input type="number" name="monto" required value="{{old('monto')}}" class="form-control text-uppercase" placeholder="monto total">
             </div>
         </div>
 

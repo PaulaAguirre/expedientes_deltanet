@@ -239,7 +239,7 @@
 <!--Fin-Contenido-->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version.</b> Beta
+        <b>Version. </b><i class="btn-primary">Beta</i>
     </div>
     <strong>Copyright &copy; 2018<span> <img src="{{URL::asset('/img/logo deltanet.png')}}" style="width: 2%"></span> <a href="">DELTAnet.</a>.</strong> All rights reserved.
 </footer>
