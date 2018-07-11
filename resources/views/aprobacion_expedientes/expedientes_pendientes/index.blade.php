@@ -24,7 +24,7 @@
                     </thead>
                     @foreach ($expedientes as $expediente)
                         @if($expediente->histories->last()->estado == 'pendiente')
-                            @if($expediente->histories->last()->area_id == Auth::user ()->area->id || \Illuminate\Support\Facades\Auth::user ()->role == 1)
+                            @if($expediente->histories->last()->area_id == Auth::user ()->area->id)
                                 <tr class="text-uppercase">
                                     <td>{{$expediente->id}}</td>
                                     <td>{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</td>
