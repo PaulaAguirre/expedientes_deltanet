@@ -31,6 +31,8 @@ class FuncionarioController extends Controller
             $query = trim ( $request->get ( 'searchText' ) );
             $funcionarios = Funcionario::with('user')
                 ->where ('id', 'like', '%'.$query.'%')
+                //->orWhere ('name', 'like', '%'.$query.'%')
+                //->orWhere ('lastname', 'like', '%'.$query.'%')
                 ->orderBy ('id', 'ASC')->paginate (5);
             return view ('funcionarios.index', ['funcionarios' => $funcionarios, 'searchText' => $query]);
         }

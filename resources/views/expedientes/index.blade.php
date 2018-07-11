@@ -51,22 +51,23 @@
                                     <td class="text-info">Pendiente</td>
                                 @endif
                             <td class="text-center">
-                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
+                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-info-circle" aria-hidden="true"></i></button></a>
                                 @if(in_array (auth ()->user ()->role_id, [1,2] ))
                                     @if($expediente->histories->last()->estado == 'pendiente')
-                                        <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-bitbucket">Aprobar</button></a>
+                                        <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-bitbucket" data-toggle="tooltip" data-placement="top" title="Aprobar"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button></a>
                                     @endif
                                 @endif
                                 @if($expediente->histories->last()->estado == 'rechazado')
-                                    <a href="{{URL::action ('RechazadosController@edit', $expediente->id)}}"><button class="btn btn-warning">Regularizar</button></a>
+                                    <a href="{{URL::action ('RechazadosController@edit', $expediente->id)}}"><button class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Regularizar"><i class="fa fa-wrench" aria-hidden="true"></i>
+                                        </button></a>
                                 @endif
 
                                 @if($expediente->histories->last()->estado <> 'aprobado')
-                                    <a href="{{URL::action ('ExpedienteController@edit', $expediente->id)}}"><button class="btn btn-info">Editar</button></a>
+                                    <a href="{{URL::action ('ExpedienteController@edit', $expediente->id)}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
                                 @endif
 
                                 @if(in_array (auth ()->user ()->role_id, [1]))
-                                    <a href="" data-target="#modal-delete-{{$expediente->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                                    <a href="" data-target="#modal-delete-{{$expediente->id}}" data-toggle="modal" data-placement="top" title="Eliminar"><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                                 @endif
                             </td>
 

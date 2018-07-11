@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Storage;
+
+
 Route::get('/home', function () {
 
     if (Auth::check ())
@@ -73,4 +76,21 @@ Route::group (['middleware'=>'auth'], function (){
     Route::resource ('proveedores', 'ProveedorController');
     Route::resource ('ots', 'OtController');
     Route::resource ('expedientes_por_areas', 'VistaporareaController');
+    Route::view('manual', 'manual');
+    //Route::get ('pdf/pdf', 'ManualController@pdf')->name ('pdf');
+
+    Route::get('media', function () {
+        return view('media');
+    });
+
+
+    Route::post('media', function () {
+        return request()->file->storeAs('uploads', request()->file->getClientOriginalName());
+    });
+
+    Route::get('/uploads/{file}', function ($file) {
+        $pdf =  Storage::response("uploads/$file");
+        $pdf->stream();
+    });
+
 });
