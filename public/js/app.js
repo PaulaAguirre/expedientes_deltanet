@@ -1,3 +1,7 @@
+/*
+ * Autor: Paula Aguirre Copyright (c) 2018.
+ */
+
 /*! AdminLTE app.js
  * ================
  * Main JS application file for AdminLTE v2. This file

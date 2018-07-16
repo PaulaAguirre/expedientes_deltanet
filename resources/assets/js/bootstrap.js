@@ -1,4 +1,8 @@
 
+/*
+ * Autor: Paula Aguirre Copyright (c) 2018. 
+ */
+
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 

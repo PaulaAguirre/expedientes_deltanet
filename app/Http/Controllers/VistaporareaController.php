@@ -1,4 +1,8 @@
 <?php
+/**
+ * Autor: Paula Aguirre Copyright (c) 2018.
+ */
+
 namespace App\Http\Controllers;
 use App\Expediente;
 use Illuminate\Http\Request;

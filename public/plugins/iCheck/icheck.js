@@ -1,3 +1,7 @@
+/*
+ * Autor: Paula Aguirre Copyright (c) 2018. 
+ */
+
 /*!
  * iCheck v1.0.1, http://git.io/arlzeA
  * =================================

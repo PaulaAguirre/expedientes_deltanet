@@ -1,4 +1,7 @@
 <?php
+/**
+ * Autor: Paula Aguirre Copyright (c) 2018.
+ */
 
 namespace App\Exceptions;
 

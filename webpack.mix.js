@@ -1,3 +1,7 @@
+/*
+ * Autor: Paula Aguirre Copyright (c) 2018.
+ */
+
 let mix = require('laravel-mix');
 
 /*
