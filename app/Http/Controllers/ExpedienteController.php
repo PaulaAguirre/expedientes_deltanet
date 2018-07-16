@@ -23,7 +23,7 @@ class ExpedienteController extends Controller
     public function __construct ()
     {
 
-        return $this->middleware ('roles: 1,2')->except (['index', 'show', 'create', 'store', 'edit', 'update']);
+        return $this->middleware ('roles: 1,2')->except (['index', 'create', 'store', 'edit', 'update']);
         return $this->middleware ('create_expediente')->only ('create', 'store');
 
     }

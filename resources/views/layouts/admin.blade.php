@@ -58,7 +58,7 @@
                                     @endif
 
                                     @if($notification->type == 'App\Notifications\RechazadosNotification')
-                                        <a href="{{$notification->data['link']}}">{{$notification->data['text']}}"> <button class="btn btn-danger btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+                                        <a href="{{$notification->data['link']}}">{{$notification->data['text']}}" <button class="btn btn-danger btn-xs"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
                                     @endif
                                 @endforeach
                             </li>
@@ -241,7 +241,7 @@
     <div class="pull-right hidden-xs">
         <b>Version. </b><i class="btn-primary">Beta</i>
     </div>
-    <strong>Copyright &copy; 2018<span> <img src="{{URL::asset('/img/logo deltanet.png')}}" style="width: 2%"></span> <a href="">DELTAnet.</a>.</strong> All rights reserved.
+    <strong>Developed by Paula Aguirre, for <a href="">DELTAnet SRL</a><span> <img src="{{URL::asset('/img/logo deltanet.png')}}" style="width: 2%"></span> </strong>All rights reserved. <strong>Copyright &copy; 2018.</strong>
 </footer>
 
 

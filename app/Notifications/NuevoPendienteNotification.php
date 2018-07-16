@@ -65,7 +65,7 @@ class NuevoPendienteNotification extends Notification
     {
         return [
             'link' => route ('expedientes_pendientes.edit',$this->history->expediente_id),
-            'text' => 'El expediente: '.$this->history->expediente->referencia.' en espera de aprobación',
+            'text' => 'El expediente: '.$this->history->expediente->referencia.', en espera de aprobación',
             'expediente_id' => $this->history->expediente_id
 
         ];

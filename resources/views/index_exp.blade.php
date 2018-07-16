@@ -10,12 +10,10 @@
             {{ session('status') }}
         </div>
     @endif
-    <br>
-    <br>
-    <br>
+
     <div class="row text-center">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <img src="{{('img/tranquility (3).png')}}" alt="Lights" style="width: 70%">
+            <img src="{{('/img/logo docfinder 2.png')}}" alt="Lights" style="width: 52%">
 
         </div>
     </div>
