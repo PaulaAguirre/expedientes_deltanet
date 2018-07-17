@@ -162,6 +162,7 @@
                             <li><a href="{{url ('aprobacion_expedientes/expedientes_pendientes')}}"><i class="fa fa-folder"></i>Expedientes a Aprobar</a></li>
                             <li><a href="{{url ('expedientes_por_areas')}}"><i class="fa fa-folder"></i>Expedientes por Areas</a></li>
                         @endif
+                        <li><a href="{{url ('historial_de_expedientes')}}"><i class="fa fa-folder"></i>Historial de Expedientes</a></li>
                     </ul>
                 </li>
 

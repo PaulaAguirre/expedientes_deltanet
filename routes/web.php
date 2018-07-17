@@ -80,6 +80,7 @@ Route::group (['middleware'=>'auth'], function (){
     Route::resource ('ots', 'OtController');
     Route::resource ('expedientes_por_areas', 'VistaporareaController');
     Route::view('manual', 'manual');
+    Route::resource('historial_de_expedientes', 'HistorialController');
     //Route::get ('pdf/pdf', 'ManualController@pdf')->name ('pdf');
 
     Route::get('media', function () {

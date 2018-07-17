@@ -30,7 +30,7 @@ class ExpedienteController extends Controller
     public function __construct ()
     {
 
-        return $this->middleware ('roles: 1,2')->except (['index', 'create', 'store', 'edit', 'update']);
+        return $this->middleware ('roles: 1,2')->except (['index', 'create', 'store', 'edit', 'update','show']);
         return $this->middleware ('create_expediente')->only ('create', 'store');
 
     }
@@ -121,7 +121,7 @@ class ExpedienteController extends Controller
     {
         $expediente = Expediente::findOrFail ($id);
 
-        $this->authorize ('show', $expediente);
+        //$this->authorize ('show', $expediente);
 
         if($expediente->creador->funcionario)
         {

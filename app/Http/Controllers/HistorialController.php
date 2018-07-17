@@ -1,25 +1,17 @@
 <?php
-/**
- * Autor: Paula Aguirre Copyright (c) 2018.
- */
 
 namespace App\Http\Controllers;
-use App\Expediente;
+
 use Illuminate\Http\Request;
-use DB;
+use App\Expediente;
+use App\Proveedor;
+use App\User;
+use Carbon\Carbon;
+use App\History;
+use Illuminate\Support\Facades\DB;
 
-
-class VistaporareaController extends Controller
+class HistorialController extends Controller
 {
-    /**
-     * VistaporareaController constructor.
-     */
-    public function __construct ()
-    {
-        //return $this->middleware ('roles: 1,2,3');
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +19,6 @@ class VistaporareaController extends Controller
      */
     public function index(Request $request)
     {
-
         if ($request)
         {
             $query = trim ( $request->get ( 'searchText' ) );
@@ -40,12 +31,8 @@ class VistaporareaController extends Controller
 
 
         }
-
-
-
-        return view ('expedientes_por_areas.index', ['expedientes' => $expedientes, 'searchText'=> $query]);
+        return view ('historial_de_expedientes.index', ['searchText' => $query, 'expedientes'=>$expedientes]);
     }
-
 
     /**
      * Show the form for creating a new resource.

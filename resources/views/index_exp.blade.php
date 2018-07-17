@@ -13,7 +13,7 @@
 
     <div class="row text-center">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <img src="{{('/img/logo docfinder 2.png')}}" alt="Lights" style="width: 52%">
+            <img src="{{('/img/logo docfinder 2.png')}}" alt="Lights" style="width: 51%">
 
         </div>
     </div>
