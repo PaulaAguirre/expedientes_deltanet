@@ -13,8 +13,8 @@
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group text-uppercase">
-                <label for="tipo">Tipo Expediente</label>
-                <p class="text-uppercase">{{$expediente->tipoexpediente->nombre}}</p>
+                <label for="tipo">Tipo Expediente - Memo N°</label>
+                <p class="text-uppercase">{{$expediente->tipoexpediente->nombre}} - {{$expediente->memo}}</p>
             </div>
         </div>
 

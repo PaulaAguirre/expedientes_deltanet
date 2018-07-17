@@ -43,6 +43,7 @@ class HistoryController extends Controller
                 ->where ('id', 'like', '%'.$query.'%')
                 ->orWhere ('referencia','like', '%'.$query.'%' )
                 ->orWhereIn ('ot_id', $ots )
+                ->orWhere ('memo', 'like', '%'.$query.'%')
                 ->orderBy('fecha_creacion', 'DESC')->paginate (5 );
         }
         return view ('aprobacion_expedientes.expedientes_pendientes.index',

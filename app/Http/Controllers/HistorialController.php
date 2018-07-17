@@ -26,6 +26,7 @@ class HistorialController extends Controller
             $expedientes = Expediente::with ('creador', 'histories', 'tipoexpediente','proveedor', 'cliente')
                 ->where ('id', 'like', '%'.$query.'%')
                 ->orWhere ('referencia','like', '%'.$query.'%' )
+                ->orWhere ('memo', 'like', '%'.$query.'%')
                 ->orWhereIn ('ot_id', $ots )
                 ->orderBy('fecha_creacion', 'DESC')->paginate (5 );
 

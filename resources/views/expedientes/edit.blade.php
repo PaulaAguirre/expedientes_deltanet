@@ -19,7 +19,7 @@
     {{Form::token()}}
     <div class="row">
 
-            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                 <div class="form-group">
                 <label for="tipo_id">Tipo de Expediente</label>
                 <select name="tipo_id" class="selectpicker form-control text-uppercase" title="Seleccione un tipo">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="ot_id">OT-Obra</label>
                 <select name="ot_id" class="selectpicker form-control text-uppercase" title="Seleccione una OT" data-live-search="true">
@@ -46,6 +46,13 @@
                         @endif
                     @endforeach
                 </select>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="referencia">Memo N°</label>
+                <input type="text" name="memo" required value="{{old('memo')}}" class="form-control text-uppercase" placeholder="número de memo">
             </div>
         </div>
 

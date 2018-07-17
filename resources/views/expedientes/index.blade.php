@@ -22,6 +22,7 @@
                     <thead style="background-color: #8eb4cb">
                         <th>id</th>
                         <th>Tipo</th>
+                        <th>Memo N°</th>
                         <th>OT</th>
                         <th>Referencia</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
@@ -38,6 +39,7 @@
                             <tr class="text-uppercase">
                             <td>{{$expediente->id}}</td>
                             <td>{{$expediente->tipoexpediente->nombre}}</td>
+                            <td>{{$expediente->memo}}</td>
                             <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
                             <td>{{$expediente->referencia}}</td>
                                 @if(in_array (auth ()->user ()->role_id, [1,2] ))

@@ -15,6 +15,7 @@
                     <thead class="text-center" style="background-color: #8eb4cb">
                     <th>id</th>
                     <th>OT</th>
+                    <th>Memo N°</th>
                     <th>Fecha Entrada</th>
                     <th>Creador</th>
                     <th>Obra</th>
@@ -28,6 +29,7 @@
                                 <tr class="text-uppercase">
                                     <td>{{$expediente->id}}</td>
                                     <td>{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</td>
+                                    <td>{{$expediente->memo}}</td>
                                     <td>{{ $expediente->histories->last()->fecha_entrada}}</td>
                                     <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                                     <td>{{$expediente->ot->obra}}</td>

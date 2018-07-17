@@ -22,6 +22,7 @@ class Expediente extends Model implements Auditable
     protected $fillable = [ //asigna los campos de la tabla de BD
         'user_id',
         'tipo_id',
+        'memo',
         'fecha_creacion',
         'obra',
         'cliente',
