@@ -25,7 +25,7 @@
                         <th>Email</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
                             <th>Rol</th>
-                            <th class="col-lg-2">Opciones</th>
+                            <th class="text-center">Opciones</th>
                         @endif
 
                     </thead>
@@ -66,11 +66,13 @@
                             @if(in_array (auth ()->user ()->role_id, [1,2] ))
                                 <td>{{ $user->role->nombre }}</td>
                             @endif
-                            <td>
+                            <td class=" text-center">
                                     @if(in_array (auth ()->user ()->role_id, [1,2] ))
-                                        <a href="{{URL::action('UserController@edit',$user->id)}}"><button class="btn btn-info">Editar</button></a>
-                                        <a href="" data-target="#modal-delete-{{$user->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
-                                    @endif
+                                        <a href="{{URL::action('UserController@edit', $user->id)}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+
+                                        <a href="" data-target="#modal-delete-{{$user->id}}" data-toggle="modal" data-placement="top" title="Eliminar"><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
+
+                                @endif
 
                             </td>
                         </tr>
