@@ -6,9 +6,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Funcionario extends Model
+class Funcionario extends Model implements Auditable
 {
+
+    use \OwenIt\Auditing\Auditable;
     /**
      * @mixin \Eloquent
      */

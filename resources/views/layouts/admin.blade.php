@@ -89,6 +89,10 @@
                                             <small class="text-yellow">
                                                 {{Auth::user ()->funcionario ? Auth::user ()->funcionario->departamento->nombre : Auth::user ()->area->nombre}}
                                             </small>
+                                        @elseif(\Illuminate\Support\Facades\Auth::user ()->role_id == 9)
+                                            <small class="text-yellow">
+                                                Administrativo
+                                            </small>
                                         @endif
 
                                             <br>

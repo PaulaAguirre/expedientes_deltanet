@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function __construct ()
     {
-        return $this->middleware ('roles:1,2')->except (['edit', 'update', 'index']);
+        return $this->middleware ('roles:1,2, 9')->except (['edit', 'update', 'index']);
     }
 
 

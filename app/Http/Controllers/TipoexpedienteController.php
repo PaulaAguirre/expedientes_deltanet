@@ -17,7 +17,7 @@ class TipoexpedienteController extends Controller
      */
     public function __construct ()
     {
-        return $this->middleware ('roles: 1, 2')->except ('index', 'show');
+        return $this->middleware ('roles: 1, 2, 9')->except ('index', 'show');
     }
 
 

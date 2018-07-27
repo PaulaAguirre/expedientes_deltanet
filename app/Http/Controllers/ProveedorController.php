@@ -15,7 +15,7 @@ class ProveedorController extends Controller
      */
     public function __construct ()
     {
-        $this->middleware ('roles: 1,2')->except ('index');
+        $this->middleware ('roles: 1,2, 9')->except ('index');
     }
 
     /**

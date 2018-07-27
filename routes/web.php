@@ -47,6 +47,10 @@ Route::get('/', function () {
         {
             return redirect ('expedientes');
         }
+        elseif (\Illuminate\Support\Facades\Auth::user ()->role_id == 9)
+        {
+            return redirect ('index_exp');
+        }
         else
         {
             return redirect ('aprobacion_expedientes/expedientes_pendientes');

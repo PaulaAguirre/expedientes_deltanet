@@ -20,7 +20,7 @@ class GerenciaController extends Controller
      */
     public function __construct ()
     {
-        return $this->middleware ('roles: 1,2 ')->except ('index');
+        return $this->middleware ('roles: 1,2, 9 ')->except ('index');
     }
 
 

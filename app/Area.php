@@ -6,13 +6,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Area extends Model
+class Area extends Model implements Auditable
 
     /**
      * @mixin \Eloquent
      */
 {
+    use \OwenIt\Auditing\Auditable;
+
     protected $table = 'areas';
     protected $primaryKey = "id";
     //public $timestamps = false; //laravel crea dos columnas que contienen informacion de cuando un registro se creó y se actualizó
