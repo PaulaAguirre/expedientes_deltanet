@@ -14,29 +14,21 @@
         @endif
 
     {!!Form:: model($expediente, ['method'=>'PATCH', 'route'=>['expedientes_pendientes.update', $expediente->id]])!!}
-        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="id">ID - Tipo Expediente</label>
-                <p>{{$expediente->id}} - {{$expediente->tipoexpediente->nombre}}</p>
+                <label for="id">ID - Tipo Expediente - MEMO</label>
+                <p>{{$expediente->id}} - {{$expediente->tipoexpediente->nombre}} - {{$expediente->memo}}</p>
             </div>
         </div>
 
-        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="ot">OT</label>
                 <p style="color: #23527c">{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</p>
             </div>
         </div>
 
-
-        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
-            <div class="form-group">
-                <label for="referencia">Memo N°</label>
-                <p>{{$expediente->memo}}</p>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="creador">Creador - Area</label>
                 <p>{{$expediente->creador->name}} {{$expediente->creador->lastname}} -
@@ -44,33 +36,48 @@
             </div>
         </div>
 
-        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="proveedor">Proveedor</label>
                 <p>{{$expediente->proveedor->name}} {{$expediente->proveedor->lastname}}</p>
             </div>
         </div>
 
-            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                 <div class="form-group">
                     <label for="referencia">Referencia</label>
                     <p>{{$expediente->referencia}}</p>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                 <div class="form-group">
                     <label for="fecha_creacion">Fecha creación</label>
                     <p>{{$expediente->fecha_creacion}}</p>
                 </div>
             </div>
 
-            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12    ">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                 <div class="form-group">
                     <label for="fecha_entrada">Fecha entrada</label>
                     <p>{{$history->fecha_entrada}}</p>
                 </div>
             </div>
+
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="monto">Monto factura</label>
+                <p>{{number_format ($expediente->monto_factura,2, ",", ".")}}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="monto">Monto Total</label>
+                <p>{{number_format ($expediente->monto,2, ",", ".")}}</p>
+            </div>
+        </div>
 
             <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                 <div class="form-group">
@@ -79,33 +86,18 @@
                 </div>
             </div>
 
-        <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-            <div class="form-group">
-                <label for="monto">Monto factura</label>
-                <p>{{number_format ($expediente->monto_factura,2, ",", ".")}}</p>
-            </div>
-        </div>
 
-        <div class="col-lg-2 col-sm-2 col-md-2 col-xs-12">
-            <div class="form-group">
-                <label for="monto">Monto Total</label>
-                <p>{{number_format ($expediente->monto,2, ",", ".")}}</p>
-            </div>
-        </div>
-
-
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-            <div class="form-group">
-                <label for="notas">Regularización</label>
-                <p>{{$history->observaciones_regularizacion}}</p>
-            </div>
-        </div>
-
-
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="notas">Notas del Expediente</label>
                 <p>{{$expediente->notas}}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="notas">Regularización</label>
+                <p>{{$history->observaciones_regularizacion ? $history->observaciones_regularizacion : "No aplica" }}</p>
             </div>
         </div>
 
