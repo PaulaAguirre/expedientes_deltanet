@@ -98,7 +98,10 @@ class TipoexpedienteController extends Controller
      */
     public function edit(tipoexpediente $tipoexpediente)
     {
-        //
+
+        $areas = $tipoexpediente->areas;
+
+        return view ('tipoexpedientes.edit', ['tipoexpediente'=>$tipoexpediente, 'areas' => $areas]);
     }
 
     /**

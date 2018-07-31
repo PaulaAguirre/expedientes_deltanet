@@ -28,11 +28,12 @@
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="descripcion">Descripción</label>
-                <input type="text" name="descripcion" required value="{{old('descripcion')}}" class="form-control text-uppercase" placeholder="Descripción del Expediente..">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" required value="{{old('nombre')}}" class="form-control text-uppercase" placeholder="Nombre del tipo de Expediente..">
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="panel panel-primary">
             <div class="panel-body" style="background-color: #d2d6de">

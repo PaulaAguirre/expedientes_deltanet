@@ -38,6 +38,7 @@ class UserController extends Controller
                 ->where('name', 'like', '%'.$query.'%')
                 ->orwhere('lastname', 'like', '%'.$query.'%')
                 ->orWhere('cedula', 'like', '%'.$query.'%')
+                ->orWhere('id', '=', $query)
                 ->orderBy('id', 'ASC')->paginate(5);
 
         }
