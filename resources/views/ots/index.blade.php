@@ -31,7 +31,9 @@
 
                             @if(in_array (auth ()->user ()->role_id, [1,2] ))
                             <td class=" text-center">
-                                <a href="{{URL::action('OtController@edit',$ot->id)}}"><button class="btn btn-info">Editar</button></a>
+                                <a href="{{URL::action('OtController@edit',$ot->id)}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button></a>
+
+
                                 <a href="" data-target="#modal-delete-{{$ot->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 
                             </td>

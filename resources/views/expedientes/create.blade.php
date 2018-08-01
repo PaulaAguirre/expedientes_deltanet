@@ -43,19 +43,27 @@
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="referencia">Memo N°</label>
+                <label for="memo">Memo N°</label>
                 <input type="text" name="memo"  value="{{old('memo')}}" class="form-control text-uppercase" placeholder="número de memo">
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="numero">Número</label>
+                <input type="text" name="numero"  value="{{old('numero')}}" class="form-control text-uppercase" placeholder="N° SP, OC, etc">
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="referencia">Referencia</label>
                 <input type="text" name="referencia" required value="{{old('referencia')}}" class="form-control text-uppercase" placeholder="Referencia">
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="">Proveedor</label>
                 <select name="proveedor_id" class="selectpicker form-control text-uppercase " data-live-search="true" title="Seleccione un proveedor">

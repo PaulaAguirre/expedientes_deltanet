@@ -17,6 +17,7 @@
                         <th>id</th>
                         <th>Tipo</th>
                         <th>OT</th>
+                        <th>Número</th>
                         <th>Referencia</th>
                         <th>Creador</th>
                         <th>Estado</th>
@@ -30,6 +31,7 @@
                                         <td>{{$expediente->id}}</td>
                                         <td>{{$expediente->tipoexpediente->nombre}}</td>
                                         <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
+                                        <td>{{$expediente->numero}}</td>
                                         <td>{{$expediente->referencia}}</td>
                                         <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                                         @if($expediente->histories->last()->estado == 'aprobado')

@@ -14,11 +14,13 @@
                 <table class="table table-striped table-bordered table-condensed table-hover">
                     <thead class="text-center" style="background-color: #8eb4cb">
                     <th>id</th>
+                    <th>Tipo</th>
                     <th>OT</th>
+                    <th>Número</th>
                     <th>Fecha Entrada</th>
                     <th>Creador</th>
-                    <th>Obra</th>
                     <th>Monto</th>
+                    <th>Estado</th>
                     <th class="text-center">Opciones</th>
 
                     </thead>
@@ -27,8 +29,10 @@
                             <td>{{$expediente->id}}</td>
                             <td>{{$expediente->tipoexpediente->nombre}}</td>
                             <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
+                            <td> {{$expediente->numero}}</td>
                             <td>{{$expediente->referencia}}</td>
                             <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
+                            <td>{{$expediente->monto}}</td>
                             @if($expediente->histories->last()->estado == 'aprobado')
                                 <td class="text-green">Proceso Finalizado</td>
                             @elseif($expediente->histories->last()->estado == 'rechazado')

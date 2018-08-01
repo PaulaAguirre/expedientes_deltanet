@@ -31,7 +31,8 @@ class Expediente extends Model implements Auditable
         'referencia',
         'monto_factura',
         'monto',
-        'notas'
+        'notas',
+        'numero'
     ];
 
     protected $guarded = [ //campos que no se quieren incluir
