@@ -44,7 +44,7 @@
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="referencia">Memo N°</label>
-                <input type="text" name="memo" required value="{{old('memo')}}" class="form-control text-uppercase" placeholder="número de memo">
+                <input type="text" name="memo"  value="{{old('memo')}}" class="form-control text-uppercase" placeholder="número de memo">
             </div>
         </div>
 
