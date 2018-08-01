@@ -109,13 +109,13 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-            <br>
-            <p class="text-danger text-bold text-sm">
-                Por favor verifique todos los datos antes de enviar.
-                Una vez que el Expediente haya sido enviado, ya no podrá ser modificado. Para más información, comuníquese con el Administrador.
-            </p>
-        </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+                <br>
+                <p class="text-danger text-bold text-sm">
+                    Por favor verifique todos los datos antes de enviar.
+                    Una vez que el Expediente haya sido enviado, ya no podrá ser modificado. Para más información, comuníquese con el Administrador.
+                </p>
+            </div>
 
 
 

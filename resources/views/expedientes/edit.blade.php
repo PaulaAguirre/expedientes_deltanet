@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="cliente">Cliente</label>
                 <select name="cliente_id" class="selectpicker form-control text-uppercase">
@@ -100,9 +100,17 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="monto">Monto</label>
+                <label for="monto">Monto Factura</label>
+                <input type="number" name="monto_factura" required value="{{$expediente->monto_factura}}" class="form-control text-uppercase" placeholder="monto factura">
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="monto">Monto Total</label>
                 <input type="number" name="monto" required value="{{$expediente->monto}}" class="form-control text-uppercase" placeholder="monto">
             </div>
         </div>
@@ -114,9 +122,16 @@
                 <textarea class="form-control text-uppercase" name="notas" rows="3" placeholder="Notas extras respecto al expediente" >{{$expediente->notas}}</textarea>
             </div>
         </div>
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <br>
+            <p class="text-danger text-bold text-sm">
+                Por favor verifique todos los datos antes de enviar.
+                Una vez que el Expediente haya sido enviado, ya no podrá ser modificado. Para más información, comuníquese con el Administrador.
+            </p>
+        </div>
 
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12" id="guardar">
+        <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12" id="guardar">
             <div class="form-group">
                 <input name="_token" value="{{csrf_token()}}" type="hidden">
                 <button class="btn btn-primary" type="submit">Guardar</button>
