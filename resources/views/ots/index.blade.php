@@ -18,7 +18,7 @@
                         <th>Obra</th>
                         <th>Referencia</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
-                        <th class="text-center">Opciones</th>
+                        <th class="text-center col-lg-2">Opciones</th>
                         @endif
 
                     </thead>
