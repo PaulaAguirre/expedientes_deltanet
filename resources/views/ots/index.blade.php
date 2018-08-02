@@ -34,7 +34,7 @@
                                 <a href="{{URL::action('OtController@edit',$ot->id)}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button></a>
 
 
-                                <a href="" data-target="#modal-delete-{{$ot->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                                <a href="" data-target="#modal-delete-{{$ot->id}}" data-toggle="modal" data-placement="top" title="Eliminar"><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
 
                             </td>
                             @endif
