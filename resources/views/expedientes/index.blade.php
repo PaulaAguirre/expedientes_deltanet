@@ -21,16 +21,17 @@
                 <table class="table table-striped table-bordered table-condensed table-hover">
                     <thead style="background-color: #8eb4cb">
                         <th>id</th>
-                        <th>Tipo</th>
+                        <th class="">Tipo</th>
                         <th>Número</th>
                         <th>Memo N°</th>
-                        <th>OT</th>
-                        <th>Referencia</th>
+                        <th class="">OT</th>
+                        <th class="">Proveedor</th>
+                        <th class="col-lg-2">Referencia</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
-                            <th>Creador</th>
+                            <th class="">Creador</th>
                             @endif
-                        <th>Estado</th>
-                        <th class="text-center">Opciones</th>
+                        <th class="col-lg-1">Estado</th>
+                        <th class="text-center col-lg-2">Opciones</th>
 
 
                     </thead>
@@ -42,7 +43,8 @@
                             <td>{{$expediente->tipoexpediente->nombre}}</td>
                             <td>{{$expediente->numero}}</td>
                             <td>{{$expediente->memo}}</td>
-                            <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
+                            <td> {{$expediente->ot->codigo}}</td>
+                            <td>{{$expediente->proveedor->name}}</td>
                             <td>{{$expediente->referencia}}</td>
                                 @if(in_array (auth ()->user ()->role_id, [1,2] ))
                                     <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
@@ -55,7 +57,7 @@
                                     <td class="text-info">Pendiente</td>
                                 @endif
                             <td class="text-center">
-                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-info-circle" aria-hidden="true"></i></button></a>
+                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
                                 @if(in_array (auth ()->user ()->role_id, [1,2] ))
                                     @if($expediente->histories->last()->estado == 'pendiente')
                                         <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-bitbucket" data-toggle="tooltip" data-placement="top" title="Aprobar"><i class="fa fa-check-circle-o" aria-hidden="true"></i></button></a>

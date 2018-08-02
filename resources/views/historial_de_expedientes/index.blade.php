@@ -17,7 +17,8 @@
                     <th>Tipo</th>
                     <th>OT</th>
                     <th>Número</th>
-                    <th>Fecha Entrada</th>
+                    <th>Proveedor</th>
+                    <th>Referencia</th>
                     <th>Creador</th>
                     <th>Monto</th>
                     <th>Estado</th>
@@ -28,8 +29,9 @@
                         <tr class="text-uppercase">
                             <td>{{$expediente->id}}</td>
                             <td>{{$expediente->tipoexpediente->nombre}}</td>
-                            <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
+                            <td> {{$expediente->ot->codigo}}</td>
                             <td> {{$expediente->numero}}</td>
+                            <td>{{$expediente->proveedor->name}}</td>
                             <td>{{$expediente->referencia}}</td>
                             <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                             <td>{{$expediente->monto}}</td>
@@ -41,7 +43,8 @@
                                 <td class="text-info">Pendiente</td>
                             @endif
                             <td class="text-center">
-                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles">Detalles</button></a>
+                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+
                             </td>
                     @endforeach
                 </table>

@@ -16,9 +16,10 @@
                     <th>id</th>
                     <th>OT</th>
                     <th>Memo N°</th>
+                    <th>Número</th>
+                    <th>Proveedor</th>
                     <th>Fecha Entrada</th>
                     <th>Creador</th>
-                    <th>Obra</th>
                     <th>Monto</th>
                     <th class="text-center">Opciones</th>
 
@@ -28,13 +29,13 @@
                             @if($expediente->histories->last()->area_id == Auth::user ()->area->id)
                                 <tr class="text-uppercase">
                                     <td>{{$expediente->id}}</td>
-                                    <td>{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</td>
+                                    <td>{{$expediente->ot->codigo}}</td>
                                     <td>{{$expediente->memo}}</td>
+                                    <td>{{$expediente->numero}}</td>
+                                    <td>{{$expediente->proveedor->name}}</td>
                                     <td>{{ $expediente->histories->last()->fecha_entrada}}</td>
                                     <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
-                                    <td>{{$expediente->ot->obra}}</td>
                                     <td>{{$expediente->monto}}</td>
-
                                     <td class="text-center">
                                         <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
                                     </td>

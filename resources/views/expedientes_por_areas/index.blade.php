@@ -18,6 +18,7 @@
                         <th>Tipo</th>
                         <th>OT</th>
                         <th>Número</th>
+                        <th>Proveedor</th>
                         <th>Referencia</th>
                         <th>Creador</th>
                         <th>Estado</th>
@@ -30,19 +31,21 @@
                                     <tr >
                                         <td>{{$expediente->id}}</td>
                                         <td>{{$expediente->tipoexpediente->nombre}}</td>
-                                        <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
+                                        <td> {{$expediente->ot->codigo}}</td>
                                         <td>{{$expediente->numero}}</td>
+                                        <td>{{$expediente->proveedor->name}}</td>
                                         <td>{{$expediente->referencia}}</td>
                                         <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                                         @if($expediente->histories->last()->estado == 'aprobado')
-                                            <td class="text-green">Aprobado</td>
+                                            <td class="text-green">Proceso Terminado</td>
                                         @elseif($expediente->histories->last()->estado == 'rechazado')
                                             <td class="text-danger">Rechazado</td>
                                         @else
                                             <td class="text-info">Pendiente</td>
                                         @endif
                                         <td class="text-center">
-                                            <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
+                                            <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+
                                         </td>
                                     </tr>
                             @else
@@ -52,18 +55,20 @@
                                         <tr >
                                             <td>{{$expediente->id}}</td>
                                             <td>{{$expediente->tipoexpediente->nombre}}</td>
-                                            <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
+                                            <td> {{$expediente->ot->codigo}}</td>
+                                            <td>{{$expediente->numero}}</td>
+                                            <td>{{$expediente->proveedor->name}}</td>
                                             <td>{{$expediente->referencia}}</td>
                                             <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                                             @if($expediente->histories->last()->estado == 'aprobado')
-                                                <td class="text-green">Aprobado</td>
+                                                <td class="text-green">Proceso Terminado</td>
                                             @elseif($expediente->histories->last()->estado == 'rechazado')
                                                 <td class="text-danger">Rechazado</td>
                                             @else
                                                 <td class="text-info">Pendiente</td>
                                             @endif
                                             <td class="text-center">
-                                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
+                                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
                                             </td>
                                         </tr>
                                     @endif
@@ -73,18 +78,20 @@
                                         <tr >
                                             <td>{{$expediente->id}}</td>
                                             <td>{{$expediente->tipoexpediente->nombre}}</td>
-                                            <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
+                                            <td> {{$expediente->ot->codigo}}</td>
+                                            <td>{{$expediente->numero}}</td>
+                                            <td>{{$expediente->proveedor->name}}</td>
                                             <td>{{$expediente->referencia}}</td>
                                             <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                                             @if($expediente->histories->last()->estado == 'aprobado')
-                                                <td class="text-green">Aprobado</td>
+                                                <td class="text-green">Proceso Terminado</td>
                                             @elseif($expediente->histories->last()->estado == 'rechazado')
                                                 <td class="text-danger">Rechazado</td>
                                             @else
                                                 <td class="text-info">Pendiente</td>
                                             @endif
                                             <td class="text-center">
-                                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
+                                                <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
                                             </td>
                                         </tr>
                                     @endif
@@ -94,18 +101,21 @@
                                             <tr >
                                                 <td>{{$expediente->id}}</td>
                                                 <td>{{$expediente->tipoexpediente->nombre}}</td>
-                                                <td> {{$expediente->ot->codigo}} {{$expediente->ot->obra}}</td>
+                                                <td> {{$expediente->ot->codigo}}</td>
+                                                <td>{{$expediente->numero}}</td>
+                                                <td>{{$expediente->proveedor->name}}</td>
                                                 <td>{{$expediente->referencia}}</td>
                                                 <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                                                 @if($expediente->histories->last()->estado == 'aprobado')
-                                                    <td class="text-green">Aprobado</td>
+                                                    <td class="text-green">Proceso Terminado</td>
                                                 @elseif($expediente->histories->last()->estado == 'rechazado')
                                                     <td class="text-danger">Rechazado</td>
                                                 @else
                                                     <td class="text-info">Pendiente</td>
                                                 @endif
                                                 <td class="text-center">
-                                                    <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
+                                                    <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+
                                                 </td>
                                             </tr>
                                     @endif

@@ -36,7 +36,7 @@ class VistaporareaController extends Controller
                 ->where ('id', 'like', '%'.$query.'%')
                 ->orWhere ('referencia','like', '%'.$query.'%' )
                 ->orWhereIn ('ot_id', $ots )
-                ->orderBy('fecha_creacion', 'DESC')->paginate (5 );
+                ->orderBy('fecha_creacion', 'DESC')->paginate (5);
 
 
         }
