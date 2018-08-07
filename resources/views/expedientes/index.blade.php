@@ -44,7 +44,7 @@
                             <td>{{$expediente->numero}}</td>
                             <td>{{$expediente->memo}}</td>
                             <td> {{$expediente->ot->codigo}}</td>
-                            <td>{{$expediente->proveedor->name}}</td>
+                            <td>{{$expediente->proveedor->name ? $expediente->proveedor->name : "" }}</td>
                             <td>{{$expediente->referencia}}</td>
                                 @if(in_array (auth ()->user ()->role_id, [1,2] ))
                                     <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>

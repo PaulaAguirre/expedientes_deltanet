@@ -66,7 +66,7 @@
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="">Proveedor</label>
-                <select name="proveedor_id" class="selectpicker form-control text-uppercase " data-live-search="true" title="Seleccione un proveedor">
+                <select name="proveedor_id" class="selectpicker form-control text-uppercase " data-live-search="true" title="Seleccione un proveedor" required>
                     @foreach($proveedores as $proveedor )
                         <option value="{{$proveedor->id}}">{{strtoupper ($proveedor->name)}}</option>
                     @endforeach
