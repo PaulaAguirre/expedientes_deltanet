@@ -3,13 +3,7 @@
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
             <h3>Listado de Expedientes <a href="expedientes/create"><button class="btn btn-success">Nuevo</button></a></h3>
-            <small class="text-muted">
-                <span class="text-bold">Los estados de los expedientes pueden ser:</span><br>
-                Rechazado: Expediente rechazado por algún motivo que debe ser regularizado<br>
-                Pendiente: Expediente en espera de aprobación para pasar al sgte. área<br>
-                Aprobado: Expediente aprobado por todas las áreas relacionadas a la misma (finalizado).
-            </small>
-            <p><br></p>
+
             @include('expedientes.search')
 
         </div>
