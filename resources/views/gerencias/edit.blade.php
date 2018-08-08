@@ -35,7 +35,7 @@
         <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
             <div class="form-group">
                 <label>Responsable de la Gerencia</label>
-                <select name="user_id" class="form-control text-uppercase selectpicker" title="Seleccione un responsable" data-live-search="true">
+                <select name="user_id" id="user_id" class="form-control text-uppercase selectpicker" title="Seleccione un responsable" data-live-search="true">
                     @foreach($gerentes as $gerente)
                         @if ($gerente->id==$gerencia->user->id)
                             <option value="{{$gerente->id}}" selected>{{strtoupper ($gerente->name)}} {{strtoupper ($gerente->lastname)}}</option>

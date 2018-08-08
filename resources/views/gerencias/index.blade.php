@@ -34,8 +34,8 @@
                             <td class="text-lowercase">{{$gerencia->user->email}}</td>
                             @if(in_array (auth ()->user ()->role_id, [1,2] ))
                             <td class="text-center">
-                                <a href="{{URL::action('GerenciaController@edit',$gerencia->id)}}"><button class="btn btn-info">Editar</button></a>
-                                <a href="" data-target="#modal-delete-{{$gerencia->id}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                                <a href="{{URL::action('GerenciaController@edit',$gerencia->id)}}"><button class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                <a href="" data-target="#modal-delete-{{$gerencia->id}}" data-toggle="modal" data-placement="top" title="Eliminar"><button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></a>
                             </td>
                             @endif
                         </tr>

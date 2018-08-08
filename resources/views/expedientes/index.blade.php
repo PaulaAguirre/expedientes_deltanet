@@ -16,8 +16,8 @@
                     <thead style="background-color: #8eb4cb">
                         <th>id</th>
                         <th class="">Tipo</th>
-                        <th>Número</th>
-                        <th>Memo N°</th>
+                        <th>#</th>
+                        <th>Memo</th>
                         <th class="">OT</th>
                         <th class="">Proveedor</th>
                         <th class="col-lg-2">Referencia</th>

@@ -112,10 +112,11 @@ class GerenciaController extends Controller
         $gerencia = Area::findOrFail ($id);
         $jefes = DB::table ('areas')->select ('user_id')
             ->where ('tipo', '=', 'D');
-        $funcionarios = DB::table ('funcionarios')->select ('user_id');
+        //$funcionarios = DB::table ('funcionarios')->select ('user_id');
 
-        $gerentes = DB::table ('users')->whereNotIn ('id', $jefes)
-            ->whereNotIn ('id', $funcionarios)
+        $gerentes = DB::table ('users')
+            //->whereNotIn ('id', $jefes)
+            //->whereNotIn ('id', $funcionarios)
             ->get ();
 
         return view ('gerencias.edit', ['gerencia' => $gerencia, 'gerentes' => $gerentes]);
@@ -130,33 +131,41 @@ class GerenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $gerencia = Area::findOrFail ($id);
 
             $this->validate ($request,
             [
-                //'user_id'=>Rule::unique ('areas', 'user_id')->ignore ($gerencia->user_id),
+                'user_id'=>Rule::unique ('areas', 'user_id')->ignore ($id),
                 'nombre'=>Rule::unique ('areas', 'nombre')->ignore ($id)
             ]);
 
-        /**
-         * buscamos al gerente anterior para pasarle el nuevo rol de 'user'
-         */
-        $responsable_anterior = $gerencia->user;
 
-        $update_gerencia = $gerencia->fill($request->all ());
-        $update_gerencia->update ();
+            $gerente_anterior = $gerencia->user;
+            $id_nuevo_gerente = $request->get ('user_id');
 
-        /**
-         * Buscamos al nuevo gerente para pasarle el nuevo rol de approver
-         */
-        $nuevo_responsable = $update_gerencia->user;
-        $nuevo_responsable->role_id = 3;
-        $nuevo_responsable->update();
+            if ($gerente_anterior->id == !$id_nuevo_gerente)
+            {
+                /**
+                 * buscamos al gerente anterior para pasarle el nuevo rol de 'user'
+                 */
+                $gerente_anterior->role_id = 8;
+                $gerente_anterior->update();
 
-        $responsable_anterior->role_id = 8;
-        $responsable_anterior->update();
+                /**
+                 * buscamos al gerente nuevo para pasarle el nuevo rol de 'approver'
+                 */
+                $gerente_nuevo = User::find($id_nuevo_gerente);
 
+                if ($gerente_nuevo->funcionario){
+                    $gerente_nuevo->funcionario->delete();
+                }
+
+                $gerente_nuevo->role_id = 3;
+                $gerente_nuevo->update();
+            }
+
+            $gerencia->fill($request->all ());
+            $gerencia->update();
 
         return redirect ()->to ('gerencias');
     }
