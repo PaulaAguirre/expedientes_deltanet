@@ -23,12 +23,14 @@ class HistorialController extends Controller
         {
             $query = trim ( $request->get ( 'searchText' ) );
             $ots = DB::table ('ots')->where ('codigo', 'like', '%'.$query.'%')->select ('id');
+            $proveedores = DB::table('proveedores')->where('name', 'like','%'.$query.'%' )->select('id');
             $expedientes = Expediente::with ('creador', 'histories', 'tipoexpediente','proveedor', 'cliente')
                 ->where ('id', 'like', '%'.$query.'%')
                 ->orWhere ('referencia','like', '%'.$query.'%' )
                 ->orWhere ('memo', 'like', '%'.$query.'%')
                 ->orWhereIn ('ot_id', $ots )
-                ->orderBy('fecha_creacion', 'DESC')->paginate (5 );
+                ->orWhereIn ('proveedor_id', $proveedores)
+                ->orderBy('id', 'DESC')->paginate (20 );
 
 
         }

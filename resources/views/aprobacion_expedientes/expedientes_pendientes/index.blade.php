@@ -47,8 +47,7 @@
                         @endif
                     @endforeach
                 </table>
-
-                {{$expedientes->render()}}
+                {{$expedientes->links()}}
             </div>
 
         </div>
