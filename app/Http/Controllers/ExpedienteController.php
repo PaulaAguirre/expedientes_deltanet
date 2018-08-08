@@ -53,7 +53,7 @@ class ExpedienteController extends Controller
                 ->orWhere ('referencia','like', '%'.$query.'%' )
                 ->orWhere ('memo', 'like', '%'.$query.'%')
                 ->orWhereIn ('ot_id', $ots )
-                ->orderBy('fecha_creacion', 'DESC')->paginate (5 );
+                ->orderBy('fecha_creacion', 'DESC')->paginate (10 );
 
 
         }

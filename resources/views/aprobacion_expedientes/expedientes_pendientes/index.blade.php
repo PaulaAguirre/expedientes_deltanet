@@ -47,10 +47,12 @@
                         @endif
                     @endforeach
                 </table>
+
+                {{$expedientes->render()}}
             </div>
 
         </div>
 
     </div>
-    {{$expedientes->links()}}
+
 @endsection
