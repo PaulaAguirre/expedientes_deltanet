@@ -33,13 +33,19 @@ class RechazadosController extends Controller
     public function index(Request $request)
     {
         if ($request) {
-            $query=trim($request->get('searchText'));
-            /*$rechazados = History::all ()->sortByDesc ( 'id' )->unique ( 'expediente_id' )
-                ->where ( 'estado', '=', 'rechazado' );*/
-            $expedientes = Expediente::orderBy('fecha_creacion', 'DESC')->paginate (5);
+            $query = trim ( $request->get ( 'searchText' ) );
+            $ots = DB::table ('ots')->where ('codigo', 'like', '%'.$query.'%')->select ('id');
+            $proveedores = DB::table('proveedores')->where('name', 'like','%'.$query.'%' )->select('id');
+            $expedientes = Expediente::with ('creador', 'histories', 'tipoexpediente','proveedor', 'cliente')
+                ->Where ('referencia','like', '%'.$query.'%' )
+                ->orWhere ('memo', 'like', '%'.$query.'%')
+                ->orWhereIn ('ot_id', $ots )
+                ->orWhere ('user_id','like', '%'.$query.'%')
+                ->orWhereIn ('proveedor_id', $proveedores)
+                ->orderBy('id', 'ASC')->get ();
 
         }
-        return view ('expedientes_rechazados.expedientes_rechazados_creador.index', ['expedientes' => $expedientes]);
+        return view ('expedientes_rechazados.expedientes_rechazados_creador.index', ['expedientes' => $expedientes, 'searchText'=> $query]);
     }
 
     /**

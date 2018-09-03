@@ -48,7 +48,7 @@
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="num_documento">Número Documento</label>
-                <input type="text" name="ruc"  value="{{old('ruc')}}" class="form-control" placeholder="Número de documento...">
+                <input type="text" name="ruc" required value="{{old('ruc')}}" class="form-control" placeholder="Número de documento...">
             </div>
         </div>
 

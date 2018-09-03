@@ -14,15 +14,15 @@
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-condensed table-hover">
                     <thead style="background-color: #8eb4cb">
-                        <th>id</th>
-                        <th>Tipo</th>
-                        <th>OT</th>
-                        <th>Número</th>
-                        <th>Proveedor</th>
-                        <th>Referencia</th>
-                        <th>Creador</th>
-                        <th>Estado</th>
-                        <th class="text-center">Opciones</th>
+                    <th>id</th>
+                    <th>OT</th>
+                    <th>Fecha</th>
+                    <th>Creador</th>
+                    <th>Monto</th>
+                    <th>Area Actual</th>
+                    <th>Proveedor</th>
+                    <th>Estado</th>
+                    <th class="text-center">Opciones</th>
 
                     </thead>
                         @foreach ($expedientes as $expediente)
@@ -30,12 +30,12 @@
                                 <!-- Para que los administradores vean los expedientes creados -->
                                     <tr >
                                         <td>{{$expediente->id}}</td>
-                                        <td>{{$expediente->tipoexpediente->nombre}}</td>
-                                        <td> {{$expediente->ot->codigo}}</td>
-                                        <td>{{$expediente->numero}}</td>
-                                        <td>{{$expediente->proveedor->name}}</td>
-                                        <td>{{$expediente->referencia}}</td>
+                                        <td>{{$expediente->ot->codigo}}</td>
+                                        <td>{{$expediente->histories->last()->created_at->format('d-m-Y')}}</td>
                                         <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
+                                        <td>{{number_format($expediente->monto,2, ",", ".")}}</td>
+                                        <td>{{$expediente->histories->last()->area->nombre}}</td>
+                                        <td>{{$expediente->proveedor->name.' '.$expediente->proveedor->lastname}}</td>
                                         @if($expediente->histories->last()->estado == 'aprobado')
                                             <td class="text-green">Proceso Terminado</td>
                                         @elseif($expediente->histories->last()->estado == 'rechazado')
@@ -45,7 +45,6 @@
                                         @endif
                                         <td class="text-center">
                                             <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-
                                         </td>
                                     </tr>
                             @else
@@ -54,12 +53,12 @@
                                     <!-- Para que los gerentes vean los expedientes creados por los funcionarios (no jefes) de su gerencia -->
                                         <tr >
                                             <td>{{$expediente->id}}</td>
-                                            <td>{{$expediente->tipoexpediente->nombre}}</td>
-                                            <td> {{$expediente->ot->codigo}}</td>
-                                            <td>{{$expediente->numero}}</td>
-                                            <td>{{$expediente->proveedor->name}}</td>
-                                            <td>{{$expediente->referencia}}</td>
+                                            <td>{{$expediente->ot->codigo}}</td>
+                                            <td>{{$expediente->histories->last()->created_at->format('d-m-Y')}}</td>
                                             <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
+                                            <td>{{number_format($expediente->monto,2, ",", ".")}}</td>
+                                            <td>{{$expediente->histories->last()->area->nombre}}</td>
+                                            <td>{{$expediente->proveedor->name.' '.$expediente->proveedor->lastname}}</td>
                                             @if($expediente->histories->last()->estado == 'aprobado')
                                                 <td class="text-green">Proceso Terminado</td>
                                             @elseif($expediente->histories->last()->estado == 'rechazado')
@@ -77,12 +76,12 @@
                                     <!--Para que los jefes vean los expedientes creados por sus funcionarios-->
                                         <tr >
                                             <td>{{$expediente->id}}</td>
-                                            <td>{{$expediente->tipoexpediente->nombre}}</td>
-                                            <td> {{$expediente->ot->codigo}}</td>
-                                            <td>{{$expediente->numero}}</td>
-                                            <td>{{$expediente->proveedor->name}}</td>
-                                            <td>{{$expediente->referencia}}</td>
+                                            <td>{{$expediente->ot->codigo}}</td>
+                                            <td>{{$expediente->histories->last()->created_at->format('d-m-Y')}}</td>
                                             <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
+                                            <td>{{number_format($expediente->monto,2, ",", ".")}}</td>
+                                            <td>{{$expediente->histories->last()->area->nombre}}</td>
+                                            <td>{{$expediente->proveedor->name.' '.$expediente->proveedor->lastname}}</td>
                                             @if($expediente->histories->last()->estado == 'aprobado')
                                                 <td class="text-green">Proceso Terminado</td>
                                             @elseif($expediente->histories->last()->estado == 'rechazado')
@@ -100,12 +99,12 @@
                                         <!--para que el gerente pueda ver los expedientes creados por los jefes de su gerencia-->
                                             <tr >
                                                 <td>{{$expediente->id}}</td>
-                                                <td>{{$expediente->tipoexpediente->nombre}}</td>
-                                                <td> {{$expediente->ot->codigo}}</td>
-                                                <td>{{$expediente->numero}}</td>
-                                                <td>{{$expediente->proveedor->name}}</td>
-                                                <td>{{$expediente->referencia}}</td>
+                                                <td>{{$expediente->ot->codigo}}</td>
+                                                <td>{{$expediente->histories->last()->created_at->format('d-m-Y')}}</td>
                                                 <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
+                                                <td>{{number_format($expediente->monto,2, ",", ".")}}</td>
+                                                <td>{{$expediente->histories->last()->area->nombre}}</td>
+                                                <td>{{$expediente->proveedor->name.' '.$expediente->proveedor->lastname}}</td>
                                                 @if($expediente->histories->last()->estado == 'aprobado')
                                                     <td class="text-green">Proceso Terminado</td>
                                                 @elseif($expediente->histories->last()->estado == 'rechazado')
@@ -115,7 +114,6 @@
                                                 @endif
                                                 <td class="text-center">
                                                     <a href="{{URL::action('ExpedienteController@show',$expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-
                                                 </td>
                                             </tr>
                                     @endif

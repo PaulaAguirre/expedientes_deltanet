@@ -14,6 +14,7 @@
         @endif
 
     {!!Form:: model($expediente, ['method'=>'PATCH', 'route'=>['expedientes_pendientes.update', $expediente->id]])!!}
+    <div>
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="id">ID - Tipo Expediente - MEMO</label>
@@ -24,7 +25,7 @@
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="ot">OT</label>
-                <p style="color: #23527c">{{$expediente->ot->codigo}} - {{$expediente->ot->obra}}</p>
+                <p style="color: #23527c">{{$expediente->ot->codigo}}</p>
             </div>
         </div>
 
@@ -35,6 +36,7 @@
                     {{$expediente->creador->funcionario ? $expediente->creador->funcionario->departamento->nombre : $expediente->creador->area->nombre}}</p>
             </div>
         </div>
+
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
@@ -100,7 +102,7 @@
                 <p>{{$history->observaciones_regularizacion ? $history->observaciones_regularizacion : "No aplica" }}</p>
             </div>
         </div>
-
+    </div>
 
 
         <div class=" col-lg-6 col-sm-6 col-md-6 col-xs-12 ">

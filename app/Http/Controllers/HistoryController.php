@@ -41,11 +41,12 @@ class HistoryController extends Controller
             $ots = DB::table ('ots')->where ('codigo', 'like', '%'.$query.'%')->select ('id');
             $proveedores = DB::table('proveedores')->where('name', 'like','%'.$query.'%' )->select('id');
             $expedientes = Expediente::with ('creador', 'histories', 'tipoexpediente','proveedor', 'cliente')
-                ->orWhere ('referencia','like', '%'.$query.'%' )
+                ->Where ('referencia','like', '%'.$query.'%' )
                 ->orWhere ('memo', 'like', '%'.$query.'%')
                 ->orWhereIn ('ot_id', $ots )
                 ->orWhereIn ('proveedor_id', $proveedores)
-                ->orderBy('id', 'ASC')->paginate (20);
+                ->orderBy('id', 'ASC')->get ();
+
         }
         return view ('aprobacion_expedientes.expedientes_pendientes.index',
             ['searchText' => $query, 'expedientes' => $expedientes]);

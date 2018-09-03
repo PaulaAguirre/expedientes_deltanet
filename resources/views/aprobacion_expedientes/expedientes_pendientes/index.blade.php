@@ -17,15 +17,14 @@
                     <th>Memo</th>
                     <th>#</th>
                     <th>Proveedor</th>
-                    <th>Fecha Entrada</th>
+                    <th>Fecha</th>
                     <th>Área</th>
                     <th>Monto</th>
                     <th class="text-center">Opciones</th>
 
                     </thead>
                     @foreach ($expedientes as $expediente)
-                        @if($expediente->histories->last()->estado == 'pendiente')
-                            @if($expediente->histories->last()->area_id == Auth::user ()->area->id)
+                        @if($expediente->histories->last()->estado == 'pendiente' && $expediente->histories->last()->area_id == \Illuminate\Support\Facades\Auth::user ()->area->id)
                                 <tr class="text-uppercase">
                                     <td>{{$expediente->id}}</td>
                                     <td>{{$expediente->ot->codigo}}</td>
@@ -38,18 +37,15 @@
                                     @else
                                         <td>{{$expediente->creador->funcionario ? $expediente->creador->funcionario->departamento->dependencia->nombre : $expediente->creador->area->dependencia->nombre}}</td>
                                     @endif
-                                        <td>{{$expediente->monto}}</td>
+                                        <td>{{number_format ($expediente->monto,2, ",", ".")}}</td>
                                     <td class="text-center">
                                         <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
                                     </td>
                                 </tr>
-                            @endif
                         @endif
                     @endforeach
                 </table>
-                {{$expedientes->links()}}
             </div>
-
         </div>
 
     </div>
