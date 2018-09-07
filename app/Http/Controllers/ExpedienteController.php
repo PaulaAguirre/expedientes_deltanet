@@ -124,8 +124,6 @@ class ExpedienteController extends Controller
     {
         $expediente = Expediente::findOrFail ($id);
 
-        //$this->authorize ('show', $expediente);
-
         if($expediente->creador->funcionario)
         {
             $area_creacion = $expediente->creador->funcionario->departamento->nombre;
