@@ -90,6 +90,12 @@ class ExpedienteController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate ($request, [
+            'ot_id'=>'required',
+            'proveedor_id'=>'required'
+        ]);
+
         $expediente = new Expediente($request->all());
         $expediente->user_id = \Auth::user ()->id;
         $expediente->fecha_creacion = Carbon::now ('America/Asuncion');
