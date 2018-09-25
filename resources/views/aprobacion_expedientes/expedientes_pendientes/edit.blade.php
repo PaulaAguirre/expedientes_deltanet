@@ -123,6 +123,11 @@
                     <label>
                         <input type="radio" name="estado" value="rechazado" onclick="enviar_atras()"> Rechazar
                     </label>
+
+                    <div class="form-group">
+                        <label>Observaciones</label>
+                        <textarea class="form-control" rows="2" name="observaciones" id="observaciones">Observaciones:</textarea>
+                    </div>
                 </div>
             </div>
 
@@ -149,12 +154,6 @@
                                     @endforeach
                                 </select>
                             </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label>Observaciones</label>
-                            <textarea class="form-control" rows="2" name="observaciones" id="observaciones">Observaciones:</textarea>
                         </div>
 
                     </div>
