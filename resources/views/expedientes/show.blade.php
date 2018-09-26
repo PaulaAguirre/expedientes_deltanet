@@ -21,13 +21,6 @@
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group text-uppercase">
-                <label for="referencia">Referencia</label>
-                <p>{{$expediente->referencia}}</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group text-uppercase">
                 <label for="tipo">Creador - Cargo</label>
                 <p class="text-uppercase">{{$expediente->creador->name}} {{$expediente->creador->lastname}} - {{$cargo}}</p>
             </div>
@@ -76,6 +69,13 @@
             </div>
         </div>
 
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group text-uppercase">
+                <label for="referencia">Referencia</label>
+                <p>{{$expediente->referencia}}</p>
+            </div>
+        </div>
+
     </div>
 
 
@@ -89,7 +89,7 @@
                         <th>Area__<i class="fa fa-arrow-circle-down"></i></th>
                         <th>Fecha Entrada</th>
                         <th>Observaciones</th>
-                        <th>aprobado por</th>
+                        <th>Enviado por</th>
                         <th>Estado</th>
                         </thead>
                         <tfoot>
@@ -106,7 +106,7 @@
                                 <td>{{$history->area->nombre}}</td>
                                 <td>{{$history->fecha_entrada}}</td>
                                 <td>{{$history->observaciones}}</td>
-                                <td>{{$history->user ? $history->user->name.' '.$history->user->lastname : 'Pendiente'}}</td>
+                                <td>{{$history->user ? $history->user->name.' '.$history->user->lastname : ''}}</td>
                                 <td>{{$history->estado}}</td>
                             </tr>
                         @endforeach

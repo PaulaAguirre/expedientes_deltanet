@@ -180,11 +180,9 @@ class HistoryController extends Controller
 
         $estado = $request->get ('estado');
         $observaciones = $request->get ('observaciones');
-        $rechazado_area = $request->get ('radio_button');
+        $rechazado_area = $request->get ('radio_button'); //si se selecciona la opción de enviar hacia atras
         $orden = $request->get ('select_area_id'); //orden hacia atras
         $orden_siguiente = $request->get ('id_area_siguiente');
-        $observaciones_adelante = $request->get ('observaciones_adelante');
-
         $expediente = Expediente::findOrFail ($id);
 
         $areas  = $expediente->tipoexpediente->areas; /**buscamos todas las areas correspondientes a ese tipo de expediente*/
@@ -266,7 +264,7 @@ class HistoryController extends Controller
         else
         {
             $history_actual->estado = 'aprobado';
-            $history_actual->observaciones = $observaciones_adelante;
+            $history_actual->observaciones = $observaciones;
             $history_actual->update();
 
             $new_history = new History();
@@ -275,7 +273,7 @@ class HistoryController extends Controller
             $new_history->orden = $orden_siguiente;
             $new_history->estado = 'pendiente';
             $new_history->fecha_entrada = Carbon::now ('America/Asuncion');
-            $new_history->observaciones = $observaciones_adelante;
+            $new_history->observaciones = $observaciones;
             $new_history->aprobado_por = \Auth::user ()->id;
             $new_history->save ();
 

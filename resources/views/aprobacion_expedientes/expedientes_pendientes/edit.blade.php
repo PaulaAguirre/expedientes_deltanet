@@ -45,21 +45,12 @@
             </div>
         </div>
 
-            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                <div class="form-group">
-                    <label for="referencia">Referencia</label>
-                    <p>{{$expediente->referencia}}</p>
-                </div>
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="fecha_creacion">Fecha Creación / Entrada Area</label>
+                <p class=" text-blue ">{{$expediente->created_at->format('d-m-Y')}} / {{$history->created_at->format('d-m-Y')}}</p>
             </div>
-
-            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                <div class="form-group">
-                    <label for="fecha_creacion">Fecha Creación / Entrada Area</label>
-                    <p class=" text-blue">{{$expediente->created_at->format('d-m-Y')}} / {{$history->created_at->format('d-m-Y')}}</p>
-                </div>
-            </div>
-
-
+        </div>
 
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
@@ -79,7 +70,7 @@
             <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                 <div class="form-group">
                     <label for="anterior">Area Anterior</label>
-                    <p>orden {{$history_anterior->orden}}-{{$history_anterior->area->nombre}}</p>
+                    <p >orden {{$history_anterior->orden}}-{{$history_anterior->area->nombre}}</p>
                 </div>
             </div>
 
@@ -87,14 +78,14 @@
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="notas">Observaciones Creador</label>
-                <p>{{$expediente->notas}}</p>
+                <p >{{$expediente->notas ? $expediente->notas : 'sin observaciones'}}</p>
             </div>
         </div>
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="notas">Observaciones Area Anterior</label>
-                <p>{{$expediente->histories->last()->observaciones}}</p>
+                <p >{{$expediente->histories->last()->observaciones}}</p>
             </div>
         </div>
 
@@ -102,6 +93,13 @@
             <div class="form-group">
                 <label for="notas">Regularización</label>
                 <p>{{$history->observaciones_regularizacion ? $history->observaciones_regularizacion : "No aplica" }}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="referencia">Referencia</label>
+                <p>{{$expediente->referencia}}</p>
             </div>
         </div>
     </div>
@@ -146,7 +144,7 @@
                             </label>
 
                             <label>
-                                <input type="radio" id="radio_button" name="radio_button" value="otra_area" onclick="mostrar_select()">Seleccionar Area
+                                <input type="radio" id="radio_button" name="radio_button" value="otra_area" onclick="mostrar_select()">Seleccionar Area anterior
                             </label>
 
                             <div class="" style="display: none" id="select_area">
@@ -174,11 +172,6 @@
                                     <option value="{{$area->pivot->orden}}" >orden: {{$area->pivot->orden}}-{{$area->nombre}}</option>
                                 @endforeach
                             </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Observaciones</label>
-                            <textarea class="form-control" rows="2" name="observaciones_adelante" id="observaciones_adelante">Observaciones:</textarea>
                         </div>
 
                     </div>
