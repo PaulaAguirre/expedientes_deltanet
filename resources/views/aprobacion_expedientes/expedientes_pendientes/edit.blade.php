@@ -54,17 +54,12 @@
 
             <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                 <div class="form-group">
-                    <label for="fecha_creacion">Fecha creación</label>
-                    <p>{{$expediente->fecha_creacion}}</p>
+                    <label for="fecha_creacion">Fecha Creación / Entrada Area</label>
+                    <p class=" text-blue">{{$expediente->created_at->format('d-m-Y')}} / {{$history->created_at->format('d-m-Y')}}</p>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                <div class="form-group">
-                    <label for="fecha_entrada">Fecha entrada</label>
-                    <p>{{$history->fecha_entrada}}</p>
-                </div>
-            </div>
+
 
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
@@ -91,8 +86,15 @@
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="notas">Notas del Expediente</label>
+                <label for="notas">Observaciones Creador</label>
                 <p>{{$expediente->notas}}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="notas">Observaciones Area Anterior</label>
+                <p>{{$expediente->histories->last()->observaciones}}</p>
             </div>
         </div>
 
@@ -124,10 +126,10 @@
                         <input type="radio" name="estado" value="rechazado" onclick="enviar_atras()"> Rechazar
                     </label>
 
-                    <div class="form-group">
-                        <label>Observaciones</label>
-                        <textarea class="form-control" rows="2" name="observaciones" id="observaciones">Observaciones:</textarea>
-                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Observaciones</label>
+                    <textarea class="form-control" rows="2" name="observaciones" id="observaciones">Observaciones:</textarea>
                 </div>
             </div>
 

@@ -20,7 +20,8 @@
                         <th>Memo</th>
                         <th class="">OT</th>
                         <th class="">Proveedor</th>
-                        <th class="col-lg-2">Referencia</th>
+                        <th>Monto</th>
+                        <th class="col-lg-2">Area Actual</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
                             <th class="">Creador</th>
                             @endif
@@ -39,7 +40,8 @@
                             <td>{{$expediente->memo}}</td>
                             <td> {{$expediente->ot->codigo}}</td>
                             <td>{{$expediente->proveedor->name ? $expediente->proveedor->name : "" }}</td>
-                            <td>{{$expediente->referencia}}</td>
+                            <td>{{number_format ($expediente->monto_factura,2, ",", ".")}}</td>
+                            <td>{{$expediente->histories->last()->area->nombre}}</td>
                                 @if(in_array (auth ()->user ()->role_id, [1,2] ))
                                     <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                                 @endif

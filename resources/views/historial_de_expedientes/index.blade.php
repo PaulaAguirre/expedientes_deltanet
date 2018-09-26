@@ -18,7 +18,7 @@
                     <th>OT</th>
                     <th>Número</th>
                     <th>Proveedor</th>
-                    <th>Referencia</th>
+                    <th>Area Actual</th>
                     <th>Creador</th>
                     <th>Monto</th>
                     <th>Estado</th>
@@ -32,9 +32,9 @@
                             <td> {{$expediente->ot->codigo}}</td>
                             <td> {{$expediente->numero}}</td>
                             <td>{{$expediente->proveedor->name}}</td>
-                            <td>{{$expediente->referencia}}</td>
+                            <td>{{$expediente->histories->last()->area->nombre}}</td>
                             <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
-                            <td>{{$expediente->monto}}</td>
+                            <td>{{number_format ($expediente->monto_factura,2, ",", ".")}}</td>
                             @if($expediente->histories->last()->estado == 'aprobado')
                                 <td class="text-green">Proceso Finalizado</td>
                             @elseif($expediente->histories->last()->estado == 'rechazado')
