@@ -25,7 +25,7 @@ class HistorialController extends Controller
             $ots = DB::table ('ots')->where ('codigo', 'like', '%'.$query.'%')->select ('id');
             $proveedores = DB::table('proveedores')->where('name', 'like','%'.$query.'%' )->select('id');
             $expedientes = Expediente::with ('creador', 'histories', 'tipoexpediente','proveedor', 'cliente')
-                ->Where ('referencia','like', '%'.$query.'%' )
+                ->Where ('id','like', '%'.$query.'%' )
                 ->orWhere ('memo', 'like', '%'.$query.'%')
                 ->orWhereIn ('ot_id', $ots )
                 ->orWhereIn ('proveedor_id', $proveedores)
