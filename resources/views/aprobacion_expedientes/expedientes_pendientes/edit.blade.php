@@ -120,8 +120,8 @@
                     @if(in_array (Auth::user ()->role_id, [1,2]))
                         <label>
                             <input type="radio" name="estado" value="enviar_final" onclick="enviar_adelante()" > Enviar al final
-                        </label>6958/*
-                    @en<43dif
+                        </label>
+                    @endif
                     <label>
                         <input type="radio" name="estado" value="rechazado" onclick="enviar_atras()"> Rechazar
                     </label>
