@@ -19,7 +19,7 @@
                     <th>Proveedor</th>
                     <th>Fecha</th>
                     <th>Área</th>
-                    <th>Monto</th>
+                    <th>Monto Factura</th>
                     <th class="text-center">Opciones</th>
 
                     </thead>

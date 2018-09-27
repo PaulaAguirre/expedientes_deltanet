@@ -84,8 +84,8 @@
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="notas">Observaciones Area Anterior</label>
-                <p >{{$expediente->histories->last()->observaciones}}</p>
+                <label for="referencia">Referencia</label>
+                <p>{{$expediente->referencia}}</p>
             </div>
         </div>
 
@@ -96,18 +96,20 @@
             </div>
         </div>
 
+
+
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="referencia">Referencia</label>
-                <p>{{$expediente->referencia}}</p>
+                <label for="notas">Observaciones Area Anterior</label>
+                <p >{{$expediente->histories->last()->observaciones}}</p>
             </div>
         </div>
     </div>
 
-
-        <div class=" col-lg-6 col-sm-6 col-md-6 col-xs-12 ">
+    <div class="form-control">
+        <div class=" col-lg-pull-4 col-sm-6 col-md-6 col-xs-12">
             <br>
-            <div class="panel-default">
+            <div class="panel-default col-lg-pull-4">
                 <div class="panel-heading text-center" style="background-color: #8eb4cb">Aprobación</div>
                 <div class="panel-body text-center">
                     <legend>Aprobar o Rechazar Expediente</legend>
@@ -118,8 +120,8 @@
                     @if(in_array (Auth::user ()->role_id, [1,2]))
                         <label>
                             <input type="radio" name="estado" value="enviar_final" onclick="enviar_adelante()" > Enviar al final
-                        </label>
-                    @endif
+                        </label>6958/*
+                    @en<43dif
                     <label>
                         <input type="radio" name="estado" value="rechazado" onclick="enviar_atras()"> Rechazar
                     </label>
