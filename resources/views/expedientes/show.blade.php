@@ -105,7 +105,7 @@
                                 <td>{{$history->orden}}</td>
                                 <td>{{$history->area->nombre}}</td>
                                 <td>{{$history->fecha_entrada}}</td>
-                                <td>{{$history->observaciones}}</td>
+                                <td>{{$history->observaciones ? $history->observaciones : 'Sin observaciones'}}</td>
                                 <td>{{$history->user ? $history->user->name.' '.$history->user->lastname : ''}}</td>
                                 <td>{{$history->estado}}</td>
                             </tr>

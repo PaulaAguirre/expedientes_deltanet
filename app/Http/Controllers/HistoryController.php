@@ -181,8 +181,8 @@ class HistoryController extends Controller
         $estado = $request->get ('estado');
         $observaciones = $request->get ('observaciones');
         $rechazado_area = $request->get ('radio_button'); //si se selecciona la opción de enviar hacia atras
-        $orden = $request->get ('select_area_id'); //orden hacia atras
-        $orden_siguiente = $request->get ('id_area_siguiente');
+        $orden = $request->get ('select_area_id'); //orden hacia atras(no id del area)
+        $orden_siguiente = $request->get ('id_area_siguiente');//orden en el que se encuentra el área
         $expediente = Expediente::findOrFail ($id);
 
         $areas  = $expediente->tipoexpediente->areas; /**buscamos todas las areas correspondientes a ese tipo de expediente*/
