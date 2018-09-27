@@ -107,7 +107,7 @@
     </div>
 
     <div class="form-control">
-        <div class=" col-lg-pull-4 col-sm-6 col-md-6 col-xs-12">
+        <div class=" col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <br>
             <div class="panel-default col-lg-pull-4">
                 <div class="panel-heading text-center" style="background-color: #8eb4cb">Aprobación</div>
