@@ -4,7 +4,6 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <h3>Tipo de Expediente:<div class="text-blue text-uppercase">{{$tipo->nombre}}</div></h3>
-
         </div>
     </div><br>
 
@@ -27,8 +26,10 @@
                         <th>Orden</th>
                         <th><i class="fa fa-arrow-circle-down"></i>ID Area</th>
                         <th>Nombre</th>
+                        <th>Estado</th>
                         </thead>
                         <tfoot>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -40,6 +41,7 @@
                                 <td>{{$area->pivot->orden}}</td>
                                 <td><i class="fa fa-arrow-circle-down"></i>{{$area->id}}</td>
                                 <td>{{$area->nombre}}</td>
+                                <td>{{$area->pivot->situacion}}</td>
 
                             </tr>
                         @endforeach

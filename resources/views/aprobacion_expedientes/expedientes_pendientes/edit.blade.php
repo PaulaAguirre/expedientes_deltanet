@@ -85,7 +85,7 @@
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="referencia">Referencia</label>
-                <p>{{$expediente->referencia}}</p>
+                <p>{{str_limit ($expediente->referencia, 40)}}</p>
             </div>
         </div>
 
@@ -106,7 +106,7 @@
         </div>
     </div>
 
-    <div class="">
+    <div>
         <div class=" col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <br>
             <div class="panel-default col-lg-pull-4">
@@ -128,7 +128,7 @@
 
                 </div>
                 <div class="form-group">
-                    <label>Observaciones</label>
+                    <label class="">Observaciones</label>
                     <textarea class="form-control" rows="2" name="observaciones" id="observaciones">Observaciones:</textarea>
                 </div>
             </div>
@@ -181,13 +181,16 @@
             </div>
         </div>
 
-        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-            <div class="form-group text-center">
-                <button class="btn btn-primary" type="submit" id="bt_enviar" name="bt_enviar" onclick="">enviar</button>
-                <button class="btn btn-danger" type="reset" onclick="cerrar_areas()">Cancelar</button>
+            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 ">
+                <div class="form-group text-center">
+                    <button class="btn btn-primary  " type="submit" id="bt_enviar" name="bt_enviar" onclick="">enviar</button>
+                    <button class="btn btn-danger  " type="reset" onclick="cerrar_areas()">Cancelar</button>
+                </div>
             </div>
-        </div>
+
     </div>
+
+
 
     {!!Form::close()!!}
 

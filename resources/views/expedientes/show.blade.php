@@ -3,6 +3,7 @@
 
     <div class="row text-uppercase">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <h3>ID: {{$expediente->id}}</h3>
             <h3 class="text-blue">OT: {{$expediente->ot->obra}} - {{$expediente->ot->codigo}}</h3>
             <h4 class="text-blue">Número {{$expediente->numero}}</h4>
             <h4 class="text-bold">Tiempo transcurrido en días: {{$tiempo_transcurrido}}</h4>

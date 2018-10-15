@@ -20,7 +20,7 @@
                     <th>Proveedor</th>
                     <th>Area Actual</th>
                     <th>Creador</th>
-                    <th>Monto</th>
+                    <th>Monto factura</th>
                     <th>Estado</th>
                     <th class="text-center">Opciones</th>
 

@@ -63,6 +63,8 @@ class TipoexpedienteController extends Controller
         $tipoexpediente->save ();
 
        $area_id = $request->get ('idarea');
+
+       $situacion = $request->get ('situacion');
        $cont = 0;
 
        while ($cont < count ($area_id)){
