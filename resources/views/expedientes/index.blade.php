@@ -20,7 +20,7 @@
                         <th>Memo</th>
                         <th class="">OT</th>
                         <th class="">Proveedor</th>
-                        <th>Monto</th>
+                        <th>Monto Factura</th>
                         <th class="col-lg-2">Area Actual</th>
                         @if(in_array (auth ()->user ()->role_id, [1,2] ))
                             <th class="">Creador</th>

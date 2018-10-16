@@ -30,9 +30,11 @@ class Expediente extends Model implements Auditable
         'proveedor_id',
         'referencia',
         'monto_factura',
+        'monto_cheque',
         'monto',
         'notas',
-        'numero'
+        'numero',
+        'numero_factura'
     ];
 
     protected $guarded = [ //campos que no se quieren incluir

@@ -101,7 +101,6 @@ class HistoryController extends Controller
 
         $areas_anteriores = $areas->take($history->orden);
 
-        //dd ($history->orden);
 
         if($history->orden < $areas->count()-1)
         {
@@ -185,6 +184,7 @@ class HistoryController extends Controller
         $orden_siguiente = $request->get ('id_area_siguiente');//orden en el que se encuentra el área
         $expediente = Expediente::findOrFail ($id);
 
+
         $areas  = $expediente->tipoexpediente->areas; /**buscamos todas las areas correspondientes a ese tipo de expediente*/
         $history_actual =  History::where('expediente_id', '=', $expediente->id)
             ->where ('estado', '=', 'pendiente')->first ();
@@ -198,6 +198,8 @@ class HistoryController extends Controller
         if($estado == 'aprobado')
         {
             $siguiente_posicion = $history_actual->orden+1; //buscamos a qué posición tiene que ir el expediente despues de ser aprobado
+
+            $siguiente_situacion = $areas[$siguiente_posicion]->pivot->situacion;
 
             $history_actual->estado = 'aprobado';
             $history_actual->observaciones = $observaciones;
@@ -213,6 +215,7 @@ class HistoryController extends Controller
                 $new_history->expediente_id = $expediente->id;
                 $new_history->area_id =$id_area_siguiente;
                 $new_history->orden = $siguiente_posicion;
+                $new_history->situacion = $siguiente_situacion;
                 $new_history->estado = 'pendiente';
                 $new_history->fecha_entrada = Carbon::now ('America/Asuncion');
                 $new_history->observaciones = $observaciones;
@@ -251,6 +254,7 @@ class HistoryController extends Controller
                 $new_history->area_id = $areas[$orden]->id;
                 $new_history->orden = $orden;
                 $new_history->estado = 'rechazado';
+                $new_history->situacion = $areas[$orden]->pivot->situacion;
                 $new_history->fecha_entrada = Carbon::now ('America/Asuncion');
                 $new_history->observaciones = $observaciones;
                 $new_history->aprobado_por = \Auth::user ()->id;
@@ -271,6 +275,7 @@ class HistoryController extends Controller
             $new_history->expediente_id = $expediente->id;
             $new_history->area_id = $areas[$orden_siguiente]->id;
             $new_history->orden = $orden_siguiente;
+            $new_history->situacion = $areas[$orden_siguiente]->situacion;
             $new_history->estado = 'pendiente';
             $new_history->fecha_entrada = Carbon::now ('America/Asuncion');
             $new_history->observaciones = $observaciones;

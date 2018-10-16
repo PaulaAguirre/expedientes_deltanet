@@ -3,7 +3,7 @@
 
     <div class="row text-uppercase">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <h3>ID: {{$expediente->id}}</h3>
+            <button class="btn-bitbucket"><h4>ID: {{$expediente->id}}</h4></button>
             <h3 class="text-blue">OT: {{$expediente->ot->obra}} - {{$expediente->ot->codigo}}</h3>
             <h4 class="text-blue">Número {{$expediente->numero}}</h4>
             <h4 class="text-bold">Tiempo transcurrido en días: {{$tiempo_transcurrido}}</h4>
@@ -41,6 +41,13 @@
             </div>
         </div>
 
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group text-uppercase">
+                <label for="proveedor">Numero Factura</label>
+                <p class="text-uppercase">{{$expediente->numero_factura ? $expediente->numero_factura : 0}}</p>
+            </div>
+        </div>
+
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group text-uppercase">
@@ -53,6 +60,13 @@
             <div class="form-group text-uppercase">
                 <label for="monto">Monto Factura</label>
                 <p>{{number_format ($expediente->monto_factura,2, ",", ".")}}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group text-uppercase">
+                <label for="monto">Monto Cheque</label>
+                <p>{{ $expediente->monto_cheque ? number_format ($expediente->monto_cheque,2, ",", ".") : 0}}</p>
             </div>
         </div>
 
@@ -92,6 +106,7 @@
                         <th>Observaciones</th>
                         <th>Enviado por</th>
                         <th>Estado</th>
+                        <th>Situacion</th>
                         </thead>
                         <tfoot>
                         <th></th>
@@ -109,6 +124,7 @@
                                 <td>{{$history->observaciones ? $history->observaciones : 'Sin observaciones'}}</td>
                                 <td>{{$history->user ? $history->user->name.' '.$history->user->lastname : ''}}</td>
                                 <td>{{$history->estado}}</td>
+                                <td>{{$history->situacion ? $history->situacion : ''}}</td>
                             </tr>
                         @endforeach
                         </tbody>

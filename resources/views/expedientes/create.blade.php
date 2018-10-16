@@ -43,6 +43,28 @@
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
+                <label for="">Proveedor</label>
+                <select name="proveedor_id" class="selectpicker form-control text-uppercase " data-live-search="true" title="Seleccione un proveedor" required>
+                    @foreach($proveedores as $proveedor )
+                        <option value="{{$proveedor->id}}">{{strtoupper ($proveedor->name)}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="cliente">Cliente</label>
+                <select name="cliente_id" class="selectpicker form-control text-uppercase">
+                    @foreach($clientes as $cliente )
+                        <option value="{{$cliente->id}}">{{strtoupper ($cliente->nombre)}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
                 <label for="memo">Memo N°</label>
                 <input type="text" name="memo"  value="{{old('memo')}}" class="form-control text-uppercase" placeholder="número de memo">
             </div>
@@ -55,36 +77,20 @@
             </div>
         </div>
 
-
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="referencia">Referencia</label>
-                <input type="text" name="referencia" required value="{{old('referencia')}}" class="form-control text-uppercase" placeholder="Referencia">
+                <label for="numero_factura">Número factura</label>
+                <input type="text" name="numero"  value="{{old('numero_factura')}}" class="form-control text-uppercase" placeholder="N° de factura">
             </div>
         </div>
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="">Proveedor</label>
-                <select name="proveedor_id" class="selectpicker form-control text-uppercase " data-live-search="true" title="Seleccione un proveedor" required>
-                    @foreach($proveedores as $proveedor )
-                        <option value="{{$proveedor->id}}">{{strtoupper ($proveedor->name)}}</option>
-                    @endforeach
-                </select>
+                <label for="monto">Monto cheque</label>
+                <input type="number" name="monto_cheque" required value="{{old('monto_cheque')}}" class="form-control text-uppercase" placeholder="monto total">
             </div>
         </div>
 
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="cliente">Cliente</label>
-                <select name="cliente_id" class="selectpicker form-control text-uppercase">
-                    @foreach($clientes as $cliente )
-                        <option value="{{$cliente->id}}">{{strtoupper ($cliente->nombre)}}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
@@ -101,8 +107,14 @@
             </div>
         </div>
 
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="referencia">Referencia</label>
+                <input type="text" name="referencia" required value="{{old('referencia')}}" class="form-control text-uppercase" placeholder="Referencia">
+            </div>
+        </div>
 
-        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="notas">Notas</label>
                 <textarea class="form-control text-uppercase" name="notas" rows="1" placeholder="Notas extras respecto al expediente"></textarea>

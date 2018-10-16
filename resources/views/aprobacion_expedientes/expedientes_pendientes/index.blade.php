@@ -20,6 +20,8 @@
                     <th>Fecha</th>
                     <th>Área</th>
                     <th>Monto Factura</th>
+                    <th>Monto Cheque</th>
+                    <th>Monto total</th>
                     <th class="text-center">Opciones</th>
 
                     </thead>
@@ -37,7 +39,10 @@
                                     @else
                                         <td>{{$expediente->creador->funcionario ? $expediente->creador->funcionario->departamento->dependencia->nombre : $expediente->creador->area->dependencia->nombre}}</td>
                                     @endif
-                                        <td>{{number_format ($expediente->monto,2, ",", ".")}}</td>
+                                    <td>{{number_format ($expediente->monto_factura,2, ",", ".")}}</td>
+                                    <td>{{$expediente->monto_cheque ? number_format ($expediente->monto_cheque,2, ",", "."): 0}}</td>
+                                    <td>{{number_format ($expediente->monto,2, ",", ".")}}</td>
+
                                     <td class="text-center">
                                         <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
                                     </td>

@@ -69,7 +69,7 @@ class TipoexpedienteController extends Controller
 
        while ($cont < count ($area_id)){
 
-           $tipoexpediente->areas ()->attach ($area_id[$cont], ['orden' => $cont]);
+           $tipoexpediente->areas ()->attach ($area_id[$cont], ['orden' => $cont, 'situacion'=>$situacion]);
             $cont = $cont + 1;
 
 

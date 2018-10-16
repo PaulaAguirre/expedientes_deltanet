@@ -26,7 +26,7 @@
                         <th>Orden</th>
                         <th><i class="fa fa-arrow-circle-down"></i>ID Area</th>
                         <th>Nombre</th>
-                        <th>Estado</th>
+                        <th>Situacion</th>
                         </thead>
                         <tfoot>
                         <th></th>

@@ -26,7 +26,7 @@ class tipoexpediente extends Model implements Auditable
 
     public function areas()
     {
-        return $this->belongsToMany ('App\Area')->withPivot ('orden')->withTimestamps ();
+        return $this->belongsToMany ('App\Area')->withPivot ('orden', 'situacion')->withTimestamps ();
     }
 
     public function expedientes ()

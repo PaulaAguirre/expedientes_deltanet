@@ -184,6 +184,7 @@ class RechazadosController extends Controller
             $new_history->area_id = $history->area_id;
             $new_history->orden = $history->orden;
             $new_history->estado = 'pendiente';
+            $new_history->situacion = $areas_expediente[$history->orden+1]->pivot->situacion;
             $new_history->fecha_entrada = Carbon::now ();
             $new_history->observaciones_regularizacion = $observaciones_regularizacion;
             $new_history->save ();
@@ -195,6 +196,7 @@ class RechazadosController extends Controller
             $new_history->area_id = $history->area_id;
             $new_history->orden = $history->orden;
             $new_history->estado = 'pendiente';
+            $new_history->situacion = $areas_expediente[$history->orden]->pivot->situacion;
             $new_history->fecha_entrada = Carbon::now ();
             $new_history->observaciones_regularizacion = $observaciones_regularizacion;
             $new_history->save ();

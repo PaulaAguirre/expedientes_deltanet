@@ -12,8 +12,8 @@
                 </ul>
             </div>
         @endif
-
     {!!Form:: model($expediente, ['method'=>'PATCH', 'route'=>['expedientes_pendientes.update', $expediente->id]])!!}
+
     <div>
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
@@ -52,6 +52,20 @@
             </div>
         </div>
 
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="monto">Número factura</label>
+                <p>{{$expediente->numero_factura ? $expediente->numero_factura : 0}}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
+                <label for="monto">Monto cheque</label>
+                <p>{{$expediente->monto_cheque ? number_format ($expediente->monto_cheque,2, ",", ".") : 0}}</p>
+            </div>
+        </div>
+
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
@@ -67,18 +81,10 @@
             </div>
         </div>
 
-            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                <div class="form-group">
-                    <label for="anterior">Area Anterior</label>
-                    <p >orden {{$history_anterior->orden}}-{{$history_anterior->area->nombre}}</p>
-                </div>
-            </div>
-
-
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
-                <label for="notas">Observaciones Creador</label>
-                <p >{{$expediente->notas ? $expediente->notas : 'sin observaciones'}}</p>
+                <label for="anterior">Area Anterior</label>
+                <p >orden {{$history_anterior->orden}}-{{$history_anterior->area->nombre}}</p>
             </div>
         </div>
 
@@ -91,11 +97,18 @@
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
+                <label for="notas">Observaciones Creador</label>
+                <p >{{$expediente->notas ? $expediente->notas : 'sin observaciones'}}</p>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+            <div class="form-group">
                 <label for="notas">Regularización</label>
                 <p>{{$history->observaciones_regularizacion ? $history->observaciones_regularizacion : "No aplica" }}</p>
             </div>
         </div>
-
 
 
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">

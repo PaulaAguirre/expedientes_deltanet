@@ -97,6 +97,9 @@ class ExpedienteController extends Controller
         ]);
 
         $expediente = new Expediente($request->all());
+
+        //dd ($expediente);
+
         $expediente->user_id = \Auth::user ()->id;
         $expediente->fecha_creacion = Carbon::now ('America/Asuncion');
 
@@ -108,10 +111,12 @@ class ExpedienteController extends Controller
             'expediente_id' => $expediente->id,
             'area_id' => $primer_area->id,
             'orden' => $primer_area->pivot->orden,
+            'situacion' => $primer_area->pivot->situacion,
             'estado' => 'pendiente',
             'motivo' => 'ok',
             'fecha_entrada' => $expediente->fecha_creacion
         ]);
+
 
         $responsable = Area::findOrFail ($primer_area->id)->user;
         $responsable->notify(new NuevoPendienteNotification($history));
