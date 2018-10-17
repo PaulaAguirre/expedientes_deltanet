@@ -124,7 +124,7 @@
                                 <td>{{$history->observaciones ? $history->observaciones : 'Sin observaciones'}}</td>
                                 <td>{{$history->user ? $history->user->name.' '.$history->user->lastname : ''}}</td>
                                 <td>{{$history->estado}}</td>
-                                <td>{{$history->situacion ? $history->situacion : ''}}</td>
+                                <td>{{$history->expediente->tipoexpediente->areas[$history->orden]->pivot->situacion ? $history->expediente->tipoexpediente->areas[$history->orden]->pivot->situacion : ''}}</td>
                             </tr>
                         @endforeach
                         </tbody>

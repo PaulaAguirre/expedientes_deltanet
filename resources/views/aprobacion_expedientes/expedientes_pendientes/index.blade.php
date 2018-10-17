@@ -21,7 +21,7 @@
                     <th>Área</th>
                     <th>Monto Factura</th>
                     <th>Monto Cheque</th>
-                    <th>Monto total</th>
+                    <th>Monto Acumulado</th>
                     <th class="text-center">Opciones</th>
 
                     </thead>
