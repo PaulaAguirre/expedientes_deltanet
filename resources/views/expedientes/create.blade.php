@@ -126,7 +126,7 @@
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
             <div class="form-group">
                 <label for="notas">Notas</label>
-                <textarea class="form-control text-uppercase" name="notas" rows="1" placeholder="Notas extras respecto al expediente"></textarea>
+                <textarea class="form-control text-uppercase" name="notas" rows="2" placeholder="Notas extras respecto al expediente"></textarea>
             </div>
         </div>
 
