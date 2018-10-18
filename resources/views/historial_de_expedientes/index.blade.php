@@ -20,7 +20,10 @@
                     <th>Proveedor</th>
                     <th>Area Actual</th>
                     <th>Creador</th>
-                    <th>Monto factura</th>
+                    <th>Monto Factura</th>
+                    <th>Monto Contractual</th>
+                    <th>Monto Cheque</th>
+                    <th>Monto Acumulado</th>
                     <th>Estado</th>
                     <th class="text-center">Opciones</th>
 
@@ -35,7 +38,9 @@
                             <td>{{$expediente->histories->last()->area->nombre}}</td>
                             <td>{{$expediente->creador->name}} {{$expediente->creador->lastname}}</td>
                             <td>{{number_format ($expediente->monto_factura,2, ",", ".")}}</td>
-                            @if($expediente->histories->last()->estado == 'aprobado')
+                            <td>{{$expediente->monto_contractual ? number_format ($expediente->monto_contractual,2, ",", "."): 0}}</td>
+                            <td>{{$expediente->monto_cheque ? number_format ($expediente->monto_cheque,2, ",", "."): 0}}</td>
+                            <td>{{number_format ($expediente->monto,2, ",", ".")}}</td>                            @if($expediente->histories->last()->estado == 'aprobado')
                                 <td class="text-green">Proceso Finalizado</td>
                             @elseif($expediente->histories->last()->estado == 'rechazado')
                                 <td class="text-danger">Rechazado</td>

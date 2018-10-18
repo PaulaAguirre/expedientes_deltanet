@@ -31,7 +31,8 @@ class Expediente extends Model implements Auditable
         'referencia',
         'monto_factura',
         'monto_cheque',
-        'monto',
+        'monto_contractual',
+        'monto', //monto acumulado
         'notas',
         'numero',
         'numero_factura'

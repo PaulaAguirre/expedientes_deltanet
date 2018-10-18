@@ -20,6 +20,7 @@
                     <th>Fecha</th>
                     <th>Área</th>
                     <th>Monto Factura</th>
+                    <th>Monto Contractual</th>
                     <th>Monto Cheque</th>
                     <th>Monto Acumulado</th>
                     <th class="text-center">Opciones</th>
@@ -40,11 +41,12 @@
                                         <td>{{$expediente->creador->funcionario ? $expediente->creador->funcionario->departamento->dependencia->nombre : $expediente->creador->area->dependencia->nombre}}</td>
                                     @endif
                                     <td>{{number_format ($expediente->monto_factura,2, ",", ".")}}</td>
+                                    <td>{{$expediente->monto_contractual ? number_format ($expediente->monto_contractual,2, ",", "."): 0}}</td>
                                     <td>{{$expediente->monto_cheque ? number_format ($expediente->monto_cheque,2, ",", "."): 0}}</td>
                                     <td>{{number_format ($expediente->monto,2, ",", ".")}}</td>
 
                                     <td class="text-center">
-                                        <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-primary">Detalles</button></a>
+                                        <a href="{{URL::action('HistoryController@edit', $expediente->id)}}"><button class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Detalles"><i class="fa fa-eye"></i></button></a>
                                     </td>
                                 </tr>
                         @endif

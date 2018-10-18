@@ -2,6 +2,15 @@
 @section ('contenido')
 
 
+
+    <div class="row text-uppercase">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+            <h4><button class="btn-bitbucket">ID: {{$expediente->id}}</button> OT:{{$expediente->ot->codigo}} - Tipo: {{$expediente->tipoexpediente->nombre}}</h4>
+            <h4 class="text-warning">Situación Actual: {{$expediente->tipoexpediente->areas[$expediente->histories->last()->orden]->pivot->situacion}}</h4>
+        </div>
+    </div><br>
+
     <div class="row text-uppercase">
         @if (count($errors)>0)
             <div class="alert alert-danger">
@@ -12,114 +21,105 @@
                 </ul>
             </div>
         @endif
+    </div>
     {!!Form:: model($expediente, ['method'=>'PATCH', 'route'=>['expedientes_pendientes.update', $expediente->id]])!!}
 
-    <div>
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="id">ID - Tipo Expediente - MEMO</label>
-                <p>{{$expediente->id}} - {{$expediente->tipoexpediente->nombre}} - {{$expediente->memo}}</p>
-            </div>
-        </div>
+    <div class="text-uppercase">
 
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="ot">OT</label>
-                <p style="color: #23527c">{{$expediente->ot->codigo}}</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="creador">Creador - Area</label>
-                <p>{{$expediente->creador->name}} {{$expediente->creador->lastname}} -
-                    {{$expediente->creador->funcionario ? $expediente->creador->funcionario->departamento->nombre : $expediente->creador->area->nombre}}</p>
-            </div>
-        </div>
-
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="proveedor">Proveedor</label>
-                <p>{{$expediente->proveedor->name}} {{$expediente->proveedor->lastname}}</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <div class="form-group">
                 <label for="fecha_creacion">Fecha Creación / Entrada Area</label>
                 <p class=" text-blue ">{{$expediente->created_at->format('d-m-Y')}} / {{$history->created_at->format('d-m-Y')}}</p>
             </div>
         </div>
 
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <div class="form-group">
-                <label for="monto">Número factura</label>
-                <p>{{$expediente->numero_factura ? $expediente->numero_factura : 0}}</p>
+                <label for="creador">Creador</label>
+                <p>{{$expediente->creador->name}} {{$expediente->creador->lastname}}
             </div>
         </div>
 
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <div class="form-group">
-                <label for="monto">Monto cheque</label>
-                <p>{{$expediente->monto_cheque ? number_format ($expediente->monto_cheque,2, ",", ".") : 0}}</p>
+                <label for="proveedor">Proveedor</label>
+                <p>{{$expediente->proveedor->name}} {{$expediente->proveedor->lastname}}</p>
             </div>
         </div>
 
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="monto">Monto factura</label>
-                <p>{{number_format ($expediente->monto_factura,2, ",", ".")}}</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="monto">Monto Total</label>
-                <p>{{number_format ($expediente->monto,2, ",", ".")}}</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="anterior">Area Anterior</label>
-                <p >orden {{$history_anterior->orden}}-{{$history_anterior->area->nombre}}</p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <div class="form-group">
                 <label for="referencia">Referencia</label>
                 <p>{{str_limit ($expediente->referencia, 40)}}</p>
             </div>
         </div>
 
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <div class="form-group">
                 <label for="notas">Observaciones Creador</label>
                 <p >{{$expediente->notas ? $expediente->notas : 'sin observaciones'}}</p>
             </div>
         </div>
 
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+            <div class="form-group">
+                <label for="anterior">Area Anterior - Situación Anterior</label>
+                <p>{{$history_anterior->orden}}: {{$history_anterior->area->nombre}} - {{$history_anterior->expediente->tipoexpediente->areas[$history_anterior->orden]->pivot->situacion ? $history_anterior->expediente->tipoexpediente->areas[$history_anterior->orden]->pivot->situacion : ''}}</p>
+            </div>
+        </div>
 
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+            <div class="form-group">
+                <label for="notas">Observaciones Area Anterior</label>
+                <p >{{$expediente->histories->last()->observaciones ? $expediente->histories->last()->observaciones : 'sin observaciones'}}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
             <div class="form-group">
                 <label for="notas">Regularización</label>
                 <p>{{$history->observaciones_regularizacion ? $history->observaciones_regularizacion : "No aplica" }}</p>
             </div>
         </div>
 
+        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+        <div class="panel-default">
+            <div class="panel-heading">Montos</div>
+            <div class="panel-body">
+                <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+                    <div class="form-group">
+                        <label for="monto">Monto contractual</label>
+                        <p>{{$expediente->numero_factura ? $expediente->numero_factura : 0}}</p>
+                    </div>
+                </div>
 
-        <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
-                <label for="notas">Observaciones Area Anterior</label>
-                <p >{{$expediente->histories->last()->observaciones}}</p>
+                <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+                    <div class="form-group">
+                        <label for="monto">Monto cheque</label>
+                        <p>{{$expediente->monto_cheque ? number_format ($expediente->monto_cheque,2, ",", ".") : 0}}</p>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+                    <div class="form-group">
+                        <label for="monto">Monto factura</label>
+                        <p>{{number_format ($expediente->monto_factura,2, ",", ".")}}</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+                    <div class="form-group">
+                        <label for="monto">Monto Total</label>
+                        <p>{{number_format ($expediente->monto,2, ",", ".")}}</p>
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
     </div>
 
-    <div>
+    <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
         <div class=" col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <br>
             <div class="panel-default col-lg-pull-4">
