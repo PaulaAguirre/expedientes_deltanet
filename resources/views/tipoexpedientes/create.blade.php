@@ -50,7 +50,7 @@
 
                         <div class="form-group col-lg-4">
                             <label>Situación</label>
-                            <input type="text" name="situacion" id="pidsituacion" required value="" class="form-control text-uppercase" placeholder="nombre del estado">
+                            <input type="text" name="pidsituacion" id="pidsituacion" required value="" class="form-control text-uppercase" placeholder="nombre del estado">
 
                         </div>
                     </div>
@@ -97,8 +97,8 @@
             $("#guardar").hide();
             function agregar() {
                 idarea = $("#pidarea").val();
-                idsituacion=$("#pidsituacion").val();
                 area = $("#pidarea option:selected").text();
+                idsituacion = $("#pidsituacion").val();
                 if(idarea!="" && idsituacion!=""){
                     var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+');">X</button></td><td><input type="hidden" name="idarea[]" value="'+idarea+'">'+area+'</td><td><input type="hidden" name="idsituacion[]" value="'+idsituacion+'">'+idsituacion+'</td></tr>'
                     cont++;

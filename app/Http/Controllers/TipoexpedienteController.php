@@ -64,12 +64,14 @@ class TipoexpedienteController extends Controller
 
        $area_id = $request->get ('idarea');
 
-       $situacion = $request->get ('situacion');
+       $situacion = $request->get ('idsituacion');
        $cont = 0;
+
+       //dd ($situacion);
 
        while ($cont < count ($area_id)){
 
-           $tipoexpediente->areas ()->attach ($area_id[$cont], ['orden' => $cont, 'situacion'=>$situacion]);
+           $tipoexpediente->areas ()->attach ($area_id[$cont], ['orden' => $cont, 'situacion'=>$situacion[$cont]]);
             $cont = $cont + 1;
 
 

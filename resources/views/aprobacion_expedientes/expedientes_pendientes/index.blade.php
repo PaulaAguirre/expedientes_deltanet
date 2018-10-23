@@ -27,7 +27,7 @@
 
                     </thead>
                     @foreach ($expedientes as $expediente)
-                        @if($expediente->histories->last()->estado == 'pendiente' && $expediente->histories->last()->area_id == \Illuminate\Support\Facades\Auth::user ()->area->id)
+                        @if($expediente->histories->last()->estado == 'pendiente' && $expediente->histories->last()->area_id == (\Illuminate\Support\Facades\Auth::user ()->area->id ))
                                 <tr class="text-uppercase">
                                     <td>{{$expediente->id}}</td>
                                     <td>{{$expediente->ot->codigo}}</td>

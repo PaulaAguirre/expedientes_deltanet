@@ -39,7 +39,7 @@ class GerenciaController extends Controller
             $gerencias = Area::with('user')
                 ->where('tipo', '=', 'G')
                 ->Where ('nombre', 'like', '%'.$query.'%')
-                ->orderBy ('id', 'ASC')->paginate (4);
+                ->orderBy ('id', 'ASC')->paginate (8);
             return view ('gerencias.index', ['gerencias' => $gerencias, 'searchText' => $query]);
         }
     }

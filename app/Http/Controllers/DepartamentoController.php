@@ -35,7 +35,7 @@ class DepartamentoController extends Controller
             $query = trim ( $request->get ( 'searchText' ) );
             $departamentos = Area::with ('user', 'dependencia')
              ->where('tipo', '=', 'D')
-            ->Where ('nombre', 'like', '%'.$query.'%')->orderBy ('id', 'ASC')->paginate (4);
+            ->Where ('nombre', 'like', '%'.$query.'%')->orderBy ('id', 'ASC')->paginate (8);
             return view ('departamentos.index', ['departamentos' => $departamentos, 'searchText' => $query]);
         }
     }
