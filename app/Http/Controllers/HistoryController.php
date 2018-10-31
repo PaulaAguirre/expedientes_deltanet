@@ -199,8 +199,6 @@ class HistoryController extends Controller
         {
             $siguiente_posicion = $history_actual->orden+1; //buscamos a qué posición tiene que ir el expediente despues de ser aprobado
 
-            $siguiente_situacion = $areas[$siguiente_posicion]->pivot->situacion;
-
             $history_actual->estado = 'aprobado';
             $history_actual->observaciones = $observaciones;
             $history_actual->aprobado_por = Auth::user ()->id;
@@ -209,6 +207,7 @@ class HistoryController extends Controller
 
             if ($siguiente_posicion < $areas->count())
             {
+                $siguiente_situacion = $areas[$siguiente_posicion]->pivot->situacion;
                 $id_area_siguiente = $areas[$siguiente_posicion]->id;
 
                 $new_history = new History();
