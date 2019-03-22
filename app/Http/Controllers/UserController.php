@@ -127,6 +127,8 @@ class UserController extends Controller
      */
     public function update(UserEditFormRequest $request, $id)
     {
+        $request->file('avatar')->store('public') ;
+
         $user = User::findOrFail ( $id );
         $user->fill($request->all ());
 

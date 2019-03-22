@@ -15,10 +15,12 @@
             @endif
         </div>
     </div>
-    {!!Form:: model($user, ['method'=>'PATCH', 'route'=>['users.update', $user->id],'files'=>'true'])!!}
+    {!!Form:: model($user, ['method'=>'PATCH', 'route'=>['users.update', $user->id], 'enctype'=>'multipart/form-data'])!!}
     {{Form::token()}}
     <div class="row">
-
+        <p><label for="avatar">
+                <input type="file" name="avatar">
+            </label></p>
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="name">Nombre</label>
