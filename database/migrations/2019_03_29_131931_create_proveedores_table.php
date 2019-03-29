@@ -18,7 +18,6 @@ class CreateProveedoresTable extends Migration
             $table->string('nombre');
             $table->integer('ruc')->nullable();
             $table->string('phone')->nullable();
-            $table->string('phone')->nullable();
             $table->string('mobile')->nullable();
             $table->string('email');
             $table->timestamps();
