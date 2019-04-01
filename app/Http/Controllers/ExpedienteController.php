@@ -90,10 +90,11 @@ class ExpedienteController extends Controller
      */
     public function store(Request $request)
     {
-
+        //dd($request->all());
         $this->validate ($request, [
             'ot_id'=>'required',
-            'proveedor_id'=>'required'
+            'proveedor_id'=>'required',
+            'cliente_id'=> 'required'
         ]);
 
         $expediente = new Expediente($request->all());

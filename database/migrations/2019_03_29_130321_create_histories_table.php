@@ -18,12 +18,12 @@ class CreateHistoriesTable extends Migration
             $table->integer('expediente_id');
             $table->integer('area_id');
             $table->integer('orden');
-            $table->string('estado');
-            $table->dateTime('fecha_entrada');
-            $table->string('observaciones');
-            $table->string('observaciones_regularizacion');
-            $table->integer('aprobado_por');
-            $table->string('situacion');
+            $table->string('estado')->nullable();
+            $table->dateTime('fecha_entrada')->nullable();
+            $table->string('observaciones')->nullable();
+            $table->string('observaciones_regularizacion')->nullable();
+            $table->integer('aprobado_por')->nullable();
+            $table->string('situacion')->nullable();
             $table->timestamps();
         });
     }

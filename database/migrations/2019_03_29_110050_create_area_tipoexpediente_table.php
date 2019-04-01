@@ -15,6 +15,7 @@ class CreateAreaTipoexpedienteTable extends Migration
     {
         Schema::create('area_tipoexpediente', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('tipoexpediente_id');
             $table->integer('area_id');
             $table->integer('orden');
             $table->string('situacion');

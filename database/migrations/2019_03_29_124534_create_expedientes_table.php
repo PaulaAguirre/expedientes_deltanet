@@ -19,7 +19,7 @@ class CreateExpedientesTable extends Migration
             $table->integer('tipo_id');
             $table->integer('memo')->nullable();
             $table->dateTime('fecha_creacion');
-            $table->integer('cliente_id');
+            $table->integer('cliente_id')->nullable();
             $table->integer('proveedor_id');
             $table->integer('ot_id');
             $table->string('referencia')->nullable();

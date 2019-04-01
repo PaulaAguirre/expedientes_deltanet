@@ -217,7 +217,7 @@ class HistoryController extends Controller
                 $new_history->situacion = $siguiente_situacion;
                 $new_history->estado = 'pendiente';
                 $new_history->fecha_entrada = Carbon::now ('America/Asuncion');
-                $new_history->observaciones = $observaciones;
+                //$new_history->observaciones = $observaciones;
 
                 $new_history->save ();
 
