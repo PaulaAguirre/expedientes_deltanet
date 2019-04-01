@@ -200,7 +200,7 @@
         <!-- /.sidebar -->
         <br>
         <br>
-        <img src="{{URL::asset('/img/logo2.png')}}" class="margin text-center" style="width: 90%">
+        <img src="{{URL::asset('/img/deltawhite2.png')}}" class="margin text-center" style="width: 90%">
 
     </aside>
 

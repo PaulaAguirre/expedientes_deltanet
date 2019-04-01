@@ -19,7 +19,7 @@ class CreateAreasTable extends Migration
             $table->string('descripcion')->nullable();
             $table->string('tipo');
             $table->integer('user_id');
-            $table->integer('dependencia_id');
+            $table->integer('dependencia_id')->nullable();
             $table->timestamps();
 
         });
