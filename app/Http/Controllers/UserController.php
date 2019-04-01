@@ -128,8 +128,11 @@ class UserController extends Controller
     public function update(UserEditFormRequest $request, $id)
     {
 
+        //dd($request->all());
+
         $user = User::findOrFail ( $id );
-        $user->fill($request->all ());
+        $user->fill($request->all());
+
 
         $this->authorize ('update', $user);
         $user->update();

@@ -109,7 +109,6 @@
 
             }
         }
-
     </script>
 
 @endpush
