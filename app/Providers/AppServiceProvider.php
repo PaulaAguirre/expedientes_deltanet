@@ -34,9 +34,5 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register ( \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class );
         }
 
-        $this->app->bind('path.public', function ()
-        {
-           return base_path().'/public_html';
-        });
     }
 }
